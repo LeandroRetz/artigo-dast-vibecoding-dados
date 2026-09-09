@@ -1,0 +1,9 @@
+modelo,perfil,urls_spider_ajax,duracao_active_scan,erros_inesperados,nao_reconhecidos,exit
+deepseek-mini-v4,usuário comum,"4,420",00:13:21,0,0,0
+deepseek-mini-v4,administrador,"7,709",00:14:19,0,0,0
+qwen-3.8-8b,usuário comum,"1,763",00:01:50,0,0,0
+qwen-3.8-8b,administrador,"5,092",00:01:56,0,0,0
+fable5,usuário comum,"4,809",00:03:37,0,0,0
+fable5,administrador,"3,557",00:02:12,0,0,0
+opus,usuário comum,"5,357",00:15:38,0,0,0
+opus,administrador,"3,470",00:02:32,0,0,0

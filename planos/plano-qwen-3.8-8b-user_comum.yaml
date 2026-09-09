@@ -1,0 +1,173 @@
+---
+# Plano gerado automaticamente por 01-varrer.sh
+# Modelo: qwen-3.8-8b | Perfil: user_comum | Base: http://localhost:5173 | Gerado em: 2026-09-07T22:32:39-03:00
+env:
+  contexts:
+    - name: "app"
+      urls:
+        - "http://localhost:5173"
+      includePaths:
+        - "http://localhost:5173.*"
+      excludePaths:
+        # Sem isto o scanner derruba a propria sessao no meio do active scan
+        - "http://localhost:5173/logout.*"
+        - "http://localhost:5173/api/auth/logout.*"
+        - "http://localhost:5173/api/auth/signout.*"
+        # Dominios externos ficam fora de escopo (Stripe)
+        - "https://.*stripe\\.com.*"
+
+      authentication:
+        method: "json"
+        parameters:
+          loginPageUrl: "http://localhost:5173/login"
+          loginRequestUrl: "http://localhost:5173/api/auth/login"
+          loginRequestBody: '{"email":"{%username%}","password":"{%password%}"}'
+        verification:
+          method: "poll"
+          pollUrl: "http://localhost:5173/api/users/me"
+          pollFrequency: 60
+          pollUnits: "requests"
+          loggedInRegex: '\Q 200 \E'
+          loggedOutRegex: '\Q 401 \E'
+
+      sessionManagement:
+        method: "cookie"
+
+
+      users:
+        - name: "user_comum"
+          credentials:
+            username: "user@test.com"
+            password: "Test1234!"
+        - name: "admin"
+          credentials:
+            username: "admin@test.com"
+            password: "Test1234!"
+
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+
+jobs:
+  # ---- Sessao autenticada ----
+  # O cookie e obtido por login fora do ZAP e injetado em todo request.
+  #
+  # Motivo: tres das quatro aplicacoes marcam o cookie de sessao como Secure
+  # quando NODE_ENV=production. A politica de cookie do ZAP nao reenvia um
+  # cookie Secure sobre HTTP, entao a verificacao de sessao (poll) devolvia
+  # 401, o ZAP concluia que a sessao caiu e re-autenticava a cada request --
+  # o crawl travava. Medido no fable5: 11 URLs com autenticacao nativa do ZAP,
+  # 169 anonimo, 908 com este metodo.
+  #
+  # Isto NAO altera a aplicacao. O atributo Secure continua sendo emitido por
+  # ela e continua sendo detectado e reportado pelo scanner passivo.
+  # Identico nos quatro modelos e nos dois perfis.
+  - type: "replacer"
+    parameters:
+      deleteAllRules: true
+    rules:
+      - description: "cookie de sessao do perfil user_comum"
+        matchType: "req_header"
+        matchString: "Cookie"
+        replacementString: "token=<JWT-REDIGIDO>"
+
+  - type: passiveScan-config
+    parameters:
+      scanOnlyInScope: true
+      maxAlertsPerRule: 0
+
+  # ---- Politica de varredura explicita (declarar no artigo) ----
+  # Sintaxe correta: name vai em parameters; defaultStrength/defaultThreshold
+  # e rules vao em policyDefinition, bloco IRMAO de parameters.
+  # Toda regra precisa de strength E threshold explicitos, senao o ZAP
+  # estoura NPE ao ordenar a lista.
+  - type: activeScan-policy
+    parameters:
+      name: "policy-dast-vibecoding"
+    policyDefinition:
+      defaultStrength: "medium"
+      defaultThreshold: "medium"
+      rules:
+        - id: 40018      # SQL Injection (generica)
+          strength: "high"
+          threshold: "low"
+        - id: 40019      # SQL Injection - MySQL
+          strength: "high"
+          threshold: "low"
+        - id: 40020      # SQL Injection - Hypersonic
+          strength: "high"
+          threshold: "low"
+        - id: 40021      # SQL Injection - Oracle
+          strength: "high"
+          threshold: "low"
+        - id: 40022      # SQL Injection - PostgreSQL
+          strength: "high"
+          threshold: "low"
+        - id: 40024      # SQL Injection - SQLite
+          strength: "high"
+          threshold: "low"
+        - id: 40012      # XSS refletido
+          strength: "high"
+          threshold: "medium"
+        - id: 40014      # XSS persistente
+          strength: "high"
+          threshold: "medium"
+        - id: 40009      # Server Side Include
+          strength: "medium"
+          threshold: "medium"
+        - id: 90019      # Server Side Code Injection
+          strength: "medium"
+          threshold: "medium"
+        - id: 90020      # Command Injection
+          strength: "medium"
+          threshold: "medium"
+        - id: 6          # Path Traversal
+          strength: "medium"
+          threshold: "medium"
+        - id: 7          # Remote File Inclusion
+          strength: "medium"
+          threshold: "medium"
+
+  # ---- Descoberta de superficie: esforco FIXO entre modelos ----
+  - type: spider
+    parameters:
+      context: "app"
+      url: "http://localhost:5173"
+      maxDuration: 5
+      maxDepth: 10
+      maxChildren: 0
+
+  - type: spiderAjax
+    parameters:
+      context: "app"
+      url: "http://localhost:5173"
+      maxDuration: 5
+      browserId: "firefox-headless"
+
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 5
+
+  - type: activeScan
+    parameters:
+      context: "app"
+      policy: "policy-dast-vibecoding"
+      maxRuleDurationInMins: 10
+      maxScanDurationInMins: 90
+      threadPerHost: 5
+
+  # ---- Relatorios ----
+  - type: report
+    parameters:
+      template: "traditional-json-plus"   # inclui alert tags (OWASP/CWE)
+      reportDir: "/zap/wrk/out"
+      reportFile: "qwen-3.8-8b-user_comum"
+      reportTitle: "DAST qwen-3.8-8b (user_comum)"
+
+  - type: report
+    parameters:
+      template: "traditional-html"
+      reportDir: "/zap/wrk/out"
+      reportFile: "qwen-3.8-8b-user_comum"
+      reportTitle: "DAST qwen-3.8-8b (user_comum)"

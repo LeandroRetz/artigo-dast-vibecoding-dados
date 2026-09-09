@@ -1,0 +1,9 @@
+modelo,perfil,achados_por_endpoint
+qwen-3.8-8b,user_comum,2.25
+qwen-3.8-8b,admin,2.15
+fable5,user_comum,2.15
+fable5,admin,2.45
+opus,user_comum,2.62
+opus,admin,2.4
+deepseek-mini-v4,user_comum,2.75
+deepseek-mini-v4,admin,3.06

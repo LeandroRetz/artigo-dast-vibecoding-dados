@@ -1,0 +1,161 @@
+---
+# Plano gerado automaticamente por 01-varrer.sh
+# Modelo: ${MODELO} | Perfil: ${PERFIL} | Base: ${BASE_URL} | Gerado em: ${GERADO_EM}
+env:
+  contexts:
+    - name: "app"
+      urls:
+        - "${BASE_URL}"
+      includePaths:
+        - "${BASE_URL}.*"
+      excludePaths:
+        # Sem isto o scanner derruba a propria sessao no meio do active scan
+        - "${BASE_URL}/logout.*"
+        - "${BASE_URL}/api/auth/logout.*"
+        - "${BASE_URL}/api/auth/signout.*"
+        # Dominios externos ficam fora de escopo (Stripe)
+        - "https://.*stripe\\.com.*"
+
+      authentication:
+        method: "${AUTH_METHOD}"
+        parameters:
+          loginPageUrl: "${LOGIN_PAGE_URL}"
+          loginRequestUrl: "${LOGIN_REQUEST_URL}"
+          loginRequestBody: '${LOGIN_BODY}'
+        verification:
+          method: "poll"
+          pollUrl: "${POLL_URL}"
+          pollFrequency: 60
+          pollUnits: "requests"
+          loggedInRegex: '\Q 200 \E'
+          loggedOutRegex: '\Q 401 \E'
+
+      sessionManagement:
+        method: "${SESSION_METHOD}"
+${SESSION_PARAMS}
+
+      users:
+        - name: "user_comum"
+          credentials:
+            username: "${USER_EMAIL}"
+            password: "${USER_PASS}"
+        - name: "admin"
+          credentials:
+            username: "${ADMIN_EMAIL}"
+            password: "${ADMIN_PASS}"
+
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+
+jobs:
+  # ---- Sessao autenticada ----
+  # O cookie e obtido por login fora do ZAP e injetado em todo request.
+  #
+  # Motivo: tres das quatro aplicacoes marcam o cookie de sessao como Secure
+  # quando NODE_ENV=production. A politica de cookie do ZAP nao reenvia um
+  # cookie Secure sobre HTTP, entao a verificacao de sessao (poll) devolvia
+  # 401, o ZAP concluia que a sessao caiu e re-autenticava a cada request --
+  # o crawl travava. Medido no fable5: 11 URLs com autenticacao nativa do ZAP,
+  # 169 anonimo, 908 com este metodo.
+  #
+  # Isto NAO altera a aplicacao. O atributo Secure continua sendo emitido por
+  # ela e continua sendo detectado e reportado pelo scanner passivo.
+  # Identico nos quatro modelos e nos dois perfis.
+${JOB_REPLACER}
+
+  - type: passiveScan-config
+    parameters:
+      scanOnlyInScope: true
+      maxAlertsPerRule: 0
+
+  # ---- Politica de varredura explicita (declarar no artigo) ----
+  # Sintaxe correta: name vai em parameters; defaultStrength/defaultThreshold
+  # e rules vao em policyDefinition, bloco IRMAO de parameters.
+  # Toda regra precisa de strength E threshold explicitos, senao o ZAP
+  # estoura NPE ao ordenar a lista.
+  - type: activeScan-policy
+    parameters:
+      name: "policy-dast-vibecoding"
+    policyDefinition:
+      defaultStrength: "${STRENGTH}"
+      defaultThreshold: "${THRESHOLD}"
+      rules:
+        - id: 40018      # SQL Injection (generica)
+          strength: "high"
+          threshold: "low"
+        - id: 40019      # SQL Injection - MySQL
+          strength: "high"
+          threshold: "low"
+        - id: 40020      # SQL Injection - Hypersonic
+          strength: "high"
+          threshold: "low"
+        - id: 40021      # SQL Injection - Oracle
+          strength: "high"
+          threshold: "low"
+        - id: 40022      # SQL Injection - PostgreSQL
+          strength: "high"
+          threshold: "low"
+        - id: 40024      # SQL Injection - SQLite
+          strength: "high"
+          threshold: "low"
+        - id: 40012      # XSS refletido
+          strength: "high"
+          threshold: "medium"
+        - id: 40014      # XSS persistente
+          strength: "high"
+          threshold: "medium"
+        - id: 40009      # Server Side Include
+          strength: "medium"
+          threshold: "medium"
+        - id: 90019      # Server Side Code Injection
+          strength: "medium"
+          threshold: "medium"
+        - id: 90020      # Command Injection
+          strength: "medium"
+          threshold: "medium"
+        - id: 6          # Path Traversal
+          strength: "medium"
+          threshold: "medium"
+        - id: 7          # Remote File Inclusion
+          strength: "medium"
+          threshold: "medium"
+
+  # ---- Descoberta de superficie: esforco FIXO entre modelos ----
+  - type: spider
+    parameters:
+      context: "app"
+      url: "${BASE_URL}"
+      maxDuration: ${SPIDER_MIN}
+      maxDepth: 10
+      maxChildren: 0
+
+${JOB_AJAX}
+
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 5
+
+  - type: activeScan
+    parameters:
+      context: "app"
+      policy: "policy-dast-vibecoding"
+      maxRuleDurationInMins: ${RULE_MIN}
+      maxScanDurationInMins: ${SCAN_MIN}
+      threadPerHost: 5
+
+  # ---- Relatorios ----
+  - type: report
+    parameters:
+      template: "traditional-json-plus"   # inclui alert tags (OWASP/CWE)
+      reportDir: "/zap/wrk/out"
+      reportFile: "${MODELO}-${PERFIL}"
+      reportTitle: "DAST ${MODELO} (${PERFIL})"
+
+  - type: report
+    parameters:
+      template: "traditional-html"
+      reportDir: "/zap/wrk/out"
+      reportFile: "${MODELO}-${PERFIL}"
+      reportTitle: "DAST ${MODELO} (${PERFIL})"

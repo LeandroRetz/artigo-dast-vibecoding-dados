@@ -1,0 +1,8 @@
+classe,cwe,opus,deepseek-mini-v4,qwen-3.8-8b,fable5
+SQL Injection - SQLite (Time Based),CWE-89,3,3,—,—
+Source Code Disclosure - File Inclusion,CWE-541,2,1,1,—
+SQL Injection,CWE-89,1,2,—,—
+Path Traversal,CWE-22,2,1,—,—
+Server Side Template Injection,CWE-1336,1,—,—,—
+NoSQL Injection - MongoDB,CWE-943,—,1,—,—
+total,,9,8,1,nenhum

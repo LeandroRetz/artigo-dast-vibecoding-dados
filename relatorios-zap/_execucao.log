@@ -1,0 +1,1094 @@
+[2026-09-07T21:54:17-03:00] ===== INICIO DA VARREDURA COMPLETA =====
+[2026-09-07T21:54:17-03:00] parametros: STRENGTH/THRESHOLD medium, SPIDER 5min, RULE 10min, SCAN 90min
+[2026-09-07T21:54:17-03:00] modelos na ordem: deepseek-mini-v4 qwen-3.8-8b fable5 opus
+[2026-09-07T21:54:17-03:00] >>> [deepseek-mini-v4] preparando
+>> [deepseek-mini-v4] derrubando todos os stacks...
+>> [deepseek-mini-v4] zerando o banco e subindo...
+>> [deepseek-mini-v4] subindo build de producao...
+ Network artigodeepseek_default Creating 
+ Network artigodeepseek_default Created 
+ Volume artigodeepseek_pgdata Creating 
+ Volume artigodeepseek_pgdata Created 
+ Container artigodeepseek-db-1 Creating 
+ Container artigodeepseek-db-1 Created 
+ Container artigodeepseek-backend-1 Creating 
+ Container artigodeepseek-backend-1 Created 
+ Container artigodeepseek-frontend-1 Creating 
+ Container artigodeepseek-frontend-1 Created 
+ Container artigodeepseek-db-1 Starting 
+ Container artigodeepseek-db-1 Started 
+ Container artigodeepseek-db-1 Waiting 
+ Container artigodeepseek-db-1 Healthy 
+ Container artigodeepseek-backend-1 Starting 
+ Container artigodeepseek-backend-1 Started 
+ Container artigodeepseek-frontend-1 Starting 
+ Container artigodeepseek-frontend-1 Started 
+   aguardando aplicacao.. OK
+>> [deepseek-mini-v4] semeando dados por usuario...
+     register user@test.com -> 201
+     login user@test.com -> 200
+     OK   POST /api/cart/items {"product_id": 1, "quantity": 2} -> 201
+     OK   POST /api/checkout {"address": {"name": "Usuario Comum", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     OK   POST /api/orders {"orderId": 1, "paymentIntentId": "pi_3UDDIxRG5ULykWvo0AbVkpOc"} -> 200
+     pedido id=1
+     OK   POST /api/products/1/reviews {"rating": 5, "comment": "seed dast Usuario Comum"} -> 201
+     avaliacao id=1
+     register admin@test.com -> 201
+     login admin@test.com -> 200
+     OK   POST /api/cart/items {"product_id": 1, "quantity": 2} -> 201
+     OK   POST /api/checkout {"address": {"name": "Admin Teste", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     OK   POST /api/orders {"orderId": 2, "paymentIntentId": "pi_3UDDJ0RG5ULykWvo0Fqtg07R"} -> 200
+     pedido id=2
+     OK   POST /api/products/1/reviews {"rating": 5, "comment": "seed dast Admin Teste"} -> 201
+     avaliacao id=2
+>> [deepseek-mini-v4] promovendo admin@test.com...
+UPDATE 1
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=401 | admin=200
+>> [deepseek-mini-v4] snapshot do estado inicial...
+   868 linhas em _snapshot-deepseek-mini-v4.sql
+>> [deepseek-mini-v4] pronto para varrer.
+[2026-09-07T21:54:37-03:00] >>> [deepseek-mini-v4] preparado; iniciando varredura dos 2 perfis
+
+============================================================
+>> MODELO: deepseek-mini-v4  (porta 5173, spa)
+============================================================
+>> Testando conectividade em http://localhost:5173 ...
+   OK.
+   fingerprint: [sem header] body-md5=e7f8b067e70b
+
+   ---- perfil: user_comum ----
+   sessao user_comum: cookie 'auth_token' obtido
+   sessao user_comum: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-deepseek-mini-v4-user_comum.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil user_comum
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = auth_token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = deepseek-mini-v4-user_comum
+Job report set reportTitle = DAST deepseek-mini-v4 (user_comum)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = deepseek-mini-v4-user_comum
+Job report set reportTitle = DAST deepseek-mini-v4 (user_comum)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 9 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 4,420 URLs
+Job spiderAjax finished, time taken: 00:04:25
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:13:21
+Job report started
+Job report generated report /zap/wrk/out/deepseek-mini-v4-user_comum.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/deepseek-mini-v4-user_comum.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 17 min | exit=0
+
+   ---- perfil: admin ----
+   >> Restaurando o banco: /home/leandro/Desktop/files/04-restaurar.sh deepseek-mini-v4
+>> [deepseek-mini-v4] restaurando o banco ao estado inicial...
+ Container artigodeepseek-backend-1 Restarting 
+ Container artigodeepseek-backend-1 Started 
+   aguardando aplicacao. OK
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=401 | admin=200
+>> [deepseek-mini-v4] banco restaurado.
+   sessao admin: cookie 'auth_token' obtido
+   sessao admin: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-deepseek-mini-v4-admin.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil admin
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = auth_token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = deepseek-mini-v4-admin
+Job report set reportTitle = DAST deepseek-mini-v4 (admin)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = deepseek-mini-v4-admin
+Job report set reportTitle = DAST deepseek-mini-v4 (admin)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 9 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 7,709 URLs
+Job spiderAjax finished, time taken: 00:04:53
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:14:19
+Job report started
+Job report generated report /zap/wrk/out/deepseek-mini-v4-admin.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/deepseek-mini-v4-admin.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 19 min | exit=0
+
+Concluido. Relatorios em out/. Agora rode: python3 02-agregar.py
+[2026-09-07T22:32:15-03:00] >>> [deepseek-mini-v4] varredura terminou em 37 min (exit=0)
+[2026-09-07T22:32:15-03:00]     OK  deepseek-mini-v4-user_comum.json (1,1M)
+[2026-09-07T22:32:15-03:00]     OK  deepseek-mini-v4-admin.json (1,3M)
+>> [deepseek-mini-v4] derrubado.
+[2026-09-07T22:32:26-03:00] >>> [qwen-3.8-8b] preparando
+>> [qwen-3.8-8b] derrubando todos os stacks...
+>> [qwen-3.8-8b] zerando o banco e subindo...
+>> [qwen-3.8-8b] subindo build de producao...
+ Network artigogwen_default Creating 
+ Network artigogwen_default Created 
+ Volume artigogwen_dbdata Creating 
+ Volume artigogwen_dbdata Created 
+ Container artigogwen-db-1 Creating 
+ Container artigogwen-db-1 Created 
+ Container artigogwen-backend-1 Creating 
+ Container artigogwen-backend-1 Created 
+ Container artigogwen-frontend-1 Creating 
+ Container artigogwen-frontend-1 Created 
+ Container artigogwen-db-1 Starting 
+ Container artigogwen-db-1 Started 
+ Container artigogwen-db-1 Waiting 
+ Container artigogwen-db-1 Healthy 
+ Container artigogwen-backend-1 Starting 
+ Container artigogwen-backend-1 Started 
+ Container artigogwen-frontend-1 Starting 
+ Container artigogwen-frontend-1 Started 
+   aguardando aplicacao. OK
+>> [qwen-3.8-8b] semeando dados por usuario...
+     register user@test.com -> 201
+     login user@test.com -> 200
+     OK   POST /api/cart/items {"product_id": 9, "quantity": 2} -> 201
+     OK   POST /api/checkout {"address": {"name": "Usuario Comum", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 200
+     OK   POST /api/orders {"paymentIntentId": "pi_3UDDtmRG5ULykWvo1BujDc82", "address": {"name": "Usuario Comum", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     pedido id=86783fc1-103a-42ee-8c71-d37958e7fa33
+     OK   POST /api/products/9/reviews {"rating": 5, "comment": "seed dast Usuario Comum"} -> 201
+     avaliacao id=1
+     register admin@test.com -> 201
+     login admin@test.com -> 200
+     OK   POST /api/cart/items {"product_id": 9, "quantity": 2} -> 201
+     OK   POST /api/checkout {"address": {"name": "Admin Teste", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 200
+     OK   POST /api/orders {"paymentIntentId": "pi_3UDDtpRG5ULykWvo03cIxgVj", "address": {"name": "Admin Teste", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     pedido id=eb413cbb-df93-460b-85bb-4aec026388ce
+     OK   POST /api/products/9/reviews {"rating": 5, "comment": "seed dast Admin Teste"} -> 201
+     avaliacao id=2
+>> [qwen-3.8-8b] promovendo admin@test.com...
+UPDATE 1
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=403 | admin=200
+>> [qwen-3.8-8b] snapshot do estado inicial...
+   710 linhas em _snapshot-qwen-3.8-8b.sql
+>> [qwen-3.8-8b] pronto para varrer.
+[2026-09-07T22:32:39-03:00] >>> [qwen-3.8-8b] preparado; iniciando varredura dos 2 perfis
+
+============================================================
+>> MODELO: qwen-3.8-8b  (porta 5173, spa)
+============================================================
+>> Testando conectividade em http://localhost:5173 ...
+   OK.
+   fingerprint: [sem header] body-md5=b4b117224b75
+
+   ---- perfil: user_comum ----
+   sessao user_comum: cookie 'token' obtido
+   sessao user_comum: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-qwen-3.8-8b-user_comum.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil user_comum
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = qwen-3.8-8b-user_comum
+Job report set reportTitle = DAST qwen-3.8-8b (user_comum)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = qwen-3.8-8b-user_comum
+Job report set reportTitle = DAST qwen-3.8-8b (user_comum)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 9 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 1,763 URLs
+Job spiderAjax finished, time taken: 00:02:28
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:01:50
+Job report started
+Job report generated report /zap/wrk/out/qwen-3.8-8b-user_comum.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/qwen-3.8-8b-user_comum.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 4 min | exit=0
+
+   ---- perfil: admin ----
+   >> Restaurando o banco: /home/leandro/Desktop/files/04-restaurar.sh qwen-3.8-8b
+>> [qwen-3.8-8b] restaurando o banco ao estado inicial...
+ Container artigogwen-backend-1 Restarting 
+ Container artigogwen-backend-1 Started 
+   aguardando aplicacao. OK
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=403 | admin=200
+>> [qwen-3.8-8b] banco restaurado.
+   sessao admin: cookie 'token' obtido
+   sessao admin: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-qwen-3.8-8b-admin.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil admin
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = qwen-3.8-8b-admin
+Job report set reportTitle = DAST qwen-3.8-8b (admin)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = qwen-3.8-8b-admin
+Job report set reportTitle = DAST qwen-3.8-8b (admin)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 9 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 5,092 URLs
+Job spiderAjax finished, time taken: 00:04:10
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:01:56
+Job report started
+Job report generated report /zap/wrk/out/qwen-3.8-8b-admin.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/qwen-3.8-8b-admin.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 6 min | exit=0
+
+Concluido. Relatorios em out/. Agora rode: python3 02-agregar.py
+[2026-09-07T22:43:42-03:00] >>> [qwen-3.8-8b] varredura terminou em 11 min (exit=0)
+[2026-09-07T22:43:42-03:00]     OK  qwen-3.8-8b-user_comum.json (236K)
+[2026-09-07T22:43:42-03:00]     OK  qwen-3.8-8b-admin.json (240K)
+>> [qwen-3.8-8b] derrubado.
+[2026-09-07T22:43:53-03:00] >>> [fable5] preparando
+>> [fable5] derrubando todos os stacks...
+>> [fable5] zerando o banco e subindo...
+>> [fable5] subindo build de producao...
+ Network artigofable_default Creating 
+ Network artigofable_default Created 
+ Volume artigofable_dbdata Creating 
+ Volume artigofable_dbdata Created 
+ Container artigofable-db-1 Creating 
+ Container artigofable-db-1 Created 
+ Container artigofable-backend-1 Creating 
+ Container artigofable-backend-1 Created 
+ Container artigofable-frontend-1 Creating 
+ Container artigofable-frontend-1 Created 
+ Container artigofable-db-1 Starting 
+ Container artigofable-db-1 Started 
+ Container artigofable-db-1 Waiting 
+ Container artigofable-db-1 Healthy 
+ Container artigofable-backend-1 Starting 
+ Container artigofable-backend-1 Started 
+ Container artigofable-frontend-1 Starting 
+ Container artigofable-frontend-1 Started 
+   aguardando aplicacao. OK
+>> [fable5] semeando dados por usuario...
+     register user@test.com -> 201
+     login user@test.com -> 200
+     OK   POST /api/cart/items {"product_id": 10, "quantity": 2} -> 201
+     OK   POST /api/checkout {"address": {"name": "Usuario Comum", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 200
+     OK   POST /api/orders {"payment_intent_id": "pi_3UDE4sRG5ULykWvo1XrtJXB5", "address": {"name": "Usuario Comum", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     OK   POST /api/products/10/reviews {"rating": 5, "comment": "seed dast Usuario Comum"} -> 201
+     avaliacao id=1
+     register admin@test.com -> 201
+     login admin@test.com -> 200
+     OK   POST /api/cart/items {"product_id": 10, "quantity": 2} -> 201
+     OK   POST /api/checkout {"address": {"name": "Admin Teste", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 200
+     OK   POST /api/orders {"payment_intent_id": "pi_3UDE4uRG5ULykWvo0Tu3Acev", "address": {"name": "Admin Teste", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     OK   POST /api/products/10/reviews {"rating": 5, "comment": "seed dast Admin Teste"} -> 201
+     avaliacao id=2
+>> [fable5] promovendo admin@test.com...
+UPDATE 1
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=403 | admin=200
+>> [fable5] snapshot do estado inicial...
+   804 linhas em _snapshot-fable5.sql
+>> [fable5] pronto para varrer.
+[2026-09-07T22:44:06-03:00] >>> [fable5] preparado; iniciando varredura dos 2 perfis
+
+============================================================
+>> MODELO: fable5  (porta 5173, spa)
+============================================================
+>> Testando conectividade em http://localhost:5173 ...
+   OK.
+   fingerprint: [sem header] body-md5=8e36af724605
+
+   ---- perfil: user_comum ----
+   sessao user_comum: cookie 'token' obtido
+   sessao user_comum: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-fable5-user_comum.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil user_comum
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = fable5-user_comum
+Job report set reportTitle = DAST fable5 (user_comum)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = fable5-user_comum
+Job report set reportTitle = DAST fable5 (user_comum)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 10 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 4,809 URLs
+Job spiderAjax finished, time taken: 00:05:01
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:03:37
+Job report started
+Job report generated report /zap/wrk/out/fable5-user_comum.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/fable5-user_comum.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 8 min | exit=0
+
+   ---- perfil: admin ----
+   >> Restaurando o banco: /home/leandro/Desktop/files/04-restaurar.sh fable5
+>> [fable5] restaurando o banco ao estado inicial...
+ Container artigofable-backend-1 Restarting 
+ Container artigofable-backend-1 Started 
+   aguardando aplicacao. OK
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=403 | admin=200
+>> [fable5] banco restaurado.
+   sessao admin: cookie 'token' obtido
+   sessao admin: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-fable5-admin.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil admin
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = fable5-admin
+Job report set reportTitle = DAST fable5 (admin)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = fable5-admin
+Job report set reportTitle = DAST fable5 (admin)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 10 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 3,557 URLs
+Job spiderAjax finished, time taken: 00:05:01
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:02:12
+Job report started
+Job report generated report /zap/wrk/out/fable5-admin.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/fable5-admin.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 7 min | exit=0
+
+Concluido. Relatorios em out/. Agora rode: python3 02-agregar.py
+[2026-09-07T23:00:36-03:00] >>> [fable5] varredura terminou em 16 min (exit=0)
+[2026-09-07T23:00:36-03:00]     OK  fable5-user_comum.json (260K)
+[2026-09-07T23:00:36-03:00]     OK  fable5-admin.json (252K)
+>> [fable5] derrubado.
+[2026-09-07T23:00:47-03:00] >>> [opus] preparando
+>> [opus] derrubando todos os stacks...
+>> [opus] zerando o banco e subindo...
+>> [opus] subindo build de producao...
+ Network artigoopus_default Creating 
+ Network artigoopus_default Created 
+ Volume artigoopus_pgdata Creating 
+ Volume artigoopus_pgdata Created 
+ Container artigoopus-db-1 Creating 
+ Container artigoopus-db-1 Created 
+ Container artigoopus-backend-1 Creating 
+ Container artigoopus-backend-1 Created 
+ Container artigoopus-frontend-1 Creating 
+ Container artigoopus-frontend-1 Created 
+ Container artigoopus-db-1 Starting 
+ Container artigoopus-db-1 Started 
+ Container artigoopus-db-1 Waiting 
+ Container artigoopus-db-1 Healthy 
+ Container artigoopus-backend-1 Starting 
+ Container artigoopus-backend-1 Started 
+ Container artigoopus-frontend-1 Starting 
+ Container artigoopus-frontend-1 Started 
+   aguardando aplicacao.. OK
+>> [opus] semeando dados por usuario...
+     register user@test.com -> 201
+     login user@test.com -> 200
+     OK   POST /api/cart/items {"productId": "962889b8-7f1b-46d9-a75d-aa2ac46c294c", "quantity": 2} -> 201
+     OK   POST /api/checkout {"shipping": {"name": "Usuario Comum", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     OK   POST /api/orders {"orderId": "f47d8757-826c-408a-8ad1-188931452b49", "paymentIntentId": "pi_3UDELJRG5ULykWvo1m4R2TYO"} -> 200
+     pedido id=f47d8757-826c-408a-8ad1-188931452b49
+     OK   POST /api/products/962889b8-7f1b-46d9-a75d-aa2ac46c294c/reviews {"rating": 5, "comment": "seed dast Usuario Comum"} -> 201
+     avaliacao id=61f7117a-2a95-40ec-a206-9e442c76a720
+     register admin@test.com -> 201
+     login admin@test.com -> 200
+     OK   POST /api/cart/items {"productId": "962889b8-7f1b-46d9-a75d-aa2ac46c294c", "quantity": 2} -> 201
+     OK   POST /api/checkout {"shipping": {"name": "Admin Teste", "phone": "51999990000", "line1": "Rua Teste 100", "line2": "Apto 1", "street": "Rua Teste 100", "city": "Porto Alegre", "state": "RS", "postal_code": "90000000", "postalCode": "90000000", "zip": "90000000", "country": "BR"}} -> 201
+     OK   POST /api/orders {"orderId": "c940cfc7-52ec-48be-a2e3-401ec5b4630d", "paymentIntentId": "pi_3UDELLRG5ULykWvo0YVNRAqB"} -> 200
+     pedido id=c940cfc7-52ec-48be-a2e3-401ec5b4630d
+     OK   POST /api/products/962889b8-7f1b-46d9-a75d-aa2ac46c294c/reviews {"rating": 5, "comment": "seed dast Admin Teste"} -> 201
+     avaliacao id=fe77dd4c-d427-44bd-aa67-9a90a39d2428
+>> [opus] promovendo admin@test.com...
+UPDATE 1
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=403 | admin=200
+>> [opus] snapshot do estado inicial...
+   602 linhas em _snapshot-opus.sql
+>> [opus] pronto para varrer.
+[2026-09-07T23:01:06-03:00] >>> [opus] preparado; iniciando varredura dos 2 perfis
+
+============================================================
+>> MODELO: opus  (porta 5173, spa)
+============================================================
+>> Testando conectividade em http://localhost:5173 ...
+   OK.
+   fingerprint: [sem header] body-md5=e7b19551847b
+
+   ---- perfil: user_comum ----
+   sessao user_comum: cookie 'access_token' obtido
+   sessao user_comum: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-opus-user_comum.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil user_comum
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = access_token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = opus-user_comum
+Job report set reportTitle = DAST opus (user_comum)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = opus-user_comum
+Job report set reportTitle = DAST opus (user_comum)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 10 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 5,357 URLs
+Job spiderAjax finished, time taken: 00:03:39
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:15:38
+Job report started
+Job report generated report /zap/wrk/out/opus-user_comum.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/opus-user_comum.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 19 min | exit=0
+
+   ---- perfil: admin ----
+   >> Restaurando o banco: /home/leandro/Desktop/files/04-restaurar.sh opus
+>> [opus] restaurando o banco ao estado inicial...
+ Container artigoopus-backend-1 Restarting 
+ Container artigoopus-backend-1 Started 
+   aguardando aplicacao. OK
+   anonimo=401 (401) | login=200 (200) | com cookie=200 (200)
+   /api/admin/orders: user_comum=403 | admin=200
+>> [opus] banco restaurado.
+   sessao admin: cookie 'access_token' obtido
+   sessao admin: /api/users/me -> 200, autenticada
+   >> Plano gerado: planos/plano-opus-admin.yaml
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil admin
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = access_token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = opus-admin
+Job report set reportTitle = DAST opus (admin)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = opus-admin
+Job report set reportTitle = DAST opus (admin)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 10 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 3,470 URLs
+Job spiderAjax finished, time taken: 00:02:34
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:02:32
+Job report started
+Job report generated report /zap/wrk/out/opus-admin.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/opus-admin.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 5 min | exit=0
+
+Concluido. Relatorios em out/. Agora rode: python3 02-agregar.py
+[2026-09-07T23:26:09-03:00] >>> [opus] varredura terminou em 25 min (exit=0)
+[2026-09-07T23:26:09-03:00]     OK  opus-user_comum.json (4,0M)
+[2026-09-07T23:26:09-03:00]     OK  opus-admin.json (312K)
+>> [opus] derrubado.
+[2026-09-07T23:26:20-03:00] >>> agregando
+>> deepseek-mini-v4/admin: 63 instancias -> 49 unicos
+>> deepseek-mini-v4/user_comum: 43 instancias -> 33 unicos
+>> fable5/admin: 38 instancias -> 27 unicos
+>> fable5/user_comum: 43 instancias -> 28 unicos
+>> opus/admin: 49 instancias -> 36 unicos
+>> opus/user_comum: 55 instancias -> 42 unicos
+>> qwen-3.8-8b/admin: 42 instancias -> 28 unicos
+>> qwen-3.8-8b/user_comum: 39 instancias -> 27 unicos
+
+>> Gerando tabelas:
+   -> _tab_resumo.csv (8 linhas)
+   -> _tab_detalhado.csv (270 linhas)
+   -> _tab_owasp.csv (8 linhas)
+   -> _tab_por_perfil.csv (4 linhas)
+   -> _pendente_mapeamento.csv (33 linhas)
+
+!! 33 achados sem tag OWASP automatica.
+   Mapeie-os manualmente a partir do CWE e documente a regra
+   de mapeamento no artigo (revisor vai perguntar).
+
+Pronto. Use _tab_resumo.csv na Secao 4.2, _tab_owasp.csv na 4.3
+e _tab_detalhado.csv para escolher os achados da Secao 4.4.
+[2026-09-07T23:26:20-03:00] >>> agregacao OK
+[2026-09-07T23:26:20-03:00] ===== FIM =====

@@ -1,0 +1,278 @@
+modelo,perfil,risco,confianca,alerta,owasp,cwe,metodo,endpoint,parametro,ocorrencias,pluginid,wasc,evidencia
+deepseek-mini-v4,admin,High,High,NoSQL Injection - MongoDB,A03,943,GET,http://localhost:5173/api/products,search,2,40033,19,
+deepseek-mini-v4,admin,High,Low,Path Traversal,A01,22,PUT,http://localhost:5173/api/admin/products/{id},category_id,1,6,33,
+deepseek-mini-v4,admin,High,Low,SQL Injection,A03,89,POST,http://localhost:5173/api/admin/products,name,1,40018,19,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,High,Low,SQL Injection,A03,89,PUT,http://localhost:5173/api/users/me,email,1,40018,19,
+deepseek-mini-v4,admin,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,city,1,40024,19,
+deepseek-mini-v4,admin,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,line2,1,40024,19,
+deepseek-mini-v4,admin,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,postalCode,1,40024,19,
+deepseek-mini-v4,admin,High,Medium,Source Code Disclosure - File Inclusion,A05,541,PUT,http://localhost:5173/api/admin/products/{id},category_id,1,43,33,
+deepseek-mini-v4,admin,Medium,High,CORS Misconfiguration,A01,942,DELETE,http://localhost:5173/api/admin/products/{id},,2,40040,14,
+deepseek-mini-v4,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,1,40040,14,
+deepseek-mini-v4,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+deepseek-mini-v4,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/ldmCzbry,,1,10038,15,
+deepseek-mini-v4,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+deepseek-mini-v4,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,category,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,3,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/admin/products,category_id,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/admin/products,description,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/admin/products,image_url,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/admin/products,name,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/cart/items,product_id,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Integer Overflow Error,A03,190,PUT,http://localhost:5173/api/admin/products/{id},category_id,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+deepseek-mini-v4,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/ldmCzbry,x-frame-options,1,10020,15,
+deepseek-mini-v4,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/sitemap.xml,x-frame-options,1,10020,15,
+deepseek-mini-v4,admin,Medium,Medium,Web Cache Deception,A05,444,PUT,http://localhost:5173/api/reviews/{id},,3,40039,0,
+deepseek-mini-v4,admin,Low,Medium,Application Error Disclosure,A05,550,DELETE,http://localhost:5173/api/admin/products/{id},,1,90022,13,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/admin/orders,city,1,40014,8,
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/admin/orders,country,1,40014,8,
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/admin/orders,line2,1,40014,8,
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/admin/orders,postalCode,1,40014,8,
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/admin/orders,state,1,40014,8,
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,line1,1,40014,8,
+deepseek-mini-v4,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/products,name,1,40014,8,
+deepseek-mini-v4,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/cart,,1,10037,13,x-powered-by: Express
+deepseek-mini-v4,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,3,10037,13,x-powered-by: Express
+deepseek-mini-v4,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/users/me,,1,10037,13,x-powered-by: Express
+deepseek-mini-v4,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+deepseek-mini-v4,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-B8LgRKuY.css,x-content-type-options,1,10021,15,
+deepseek-mini-v4,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-BeRQGEZr.js,x-content-type-options,1,10021,15,
+deepseek-mini-v4,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+deepseek-mini-v4,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+deepseek-mini-v4,admin,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/admin/products/{id},,2,90027,45,
+deepseek-mini-v4,admin,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+deepseek-mini-v4,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/ldmCzbry,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,admin,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/admin/products/{id},Header User-Agent,3,10104,0,
+deepseek-mini-v4,user_comum,High,Medium,SQL Injection,A03,89,PUT,http://localhost:5173/api/users/me,email,1,40018,19,
+deepseek-mini-v4,user_comum,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,city,1,40024,19,
+deepseek-mini-v4,user_comum,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,line2,1,40024,19,
+deepseek-mini-v4,user_comum,Medium,High,CORS Misconfiguration,A01,942,DELETE,http://localhost:5173/api/cart/items/{id},,2,40040,14,
+deepseek-mini-v4,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,1,40040,14,
+deepseek-mini-v4,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+deepseek-mini-v4,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+deepseek-mini-v4,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+deepseek-mini-v4,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,category,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,2,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,user_comum,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/cart/items,product_id,1,30003,3,HTTP/1.1 500 Internal Server Error
+deepseek-mini-v4,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+deepseek-mini-v4,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/robots.txt,x-frame-options,1,10020,15,
+deepseek-mini-v4,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,city,1,40014,8,
+deepseek-mini-v4,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,country,1,40014,8,
+deepseek-mini-v4,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,line1,1,40014,8,
+deepseek-mini-v4,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,line2,1,40014,8,
+deepseek-mini-v4,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,postalCode,1,40014,8,
+deepseek-mini-v4,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,state,1,40014,8,
+deepseek-mini-v4,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/cart,,1,10037,13,x-powered-by: Express
+deepseek-mini-v4,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,3,10037,13,x-powered-by: Express
+deepseek-mini-v4,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/users/me,,1,10037,13,x-powered-by: Express
+deepseek-mini-v4,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+deepseek-mini-v4,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-B8LgRKuY.css,x-content-type-options,1,10021,15,
+deepseek-mini-v4,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-BeRQGEZr.js,x-content-type-options,1,10021,15,
+deepseek-mini-v4,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+deepseek-mini-v4,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+deepseek-mini-v4,user_comum,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/cart/items/{id},,2,90027,45,
+deepseek-mini-v4,user_comum,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+deepseek-mini-v4,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BeRQGEZr.js""></script>"
+deepseek-mini-v4,user_comum,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/cart/items/{id},Header User-Agent,3,10104,0,
+fable5,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,2,40040,14,
+fable5,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/assets/index-BLyIFoh3.css,,1,40040,14,
+fable5,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+fable5,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+fable5,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+fable5,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,category,1,30003,3,HTTP/1.1 500 Internal Server Error
+fable5,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,3,30003,3,HTTP/1.1 500 Internal Server Error
+fable5,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+fable5,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/robots.txt,x-frame-options,1,10020,15,
+fable5,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/sitemap.xml,x-frame-options,1,10020,15,
+fable5,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/cart,,1,10037,13,x-powered-by: Express
+fable5,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/orders,,1,10037,13,x-powered-by: Express
+fable5,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/orders/{id},,1,10037,13,x-powered-by: Express
+fable5,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,1,10037,13,x-powered-by: Express
+fable5,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/users/me,,1,10037,13,x-powered-by: Express
+fable5,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+fable5,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-BLyIFoh3.css,x-content-type-options,1,10021,15,
+fable5,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-BQTL0Hr_.js,x-content-type-options,1,10021,15,
+fable5,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+fable5,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+fable5,admin,Informational,High,CORS Header,A01,942,DELETE,http://localhost:5173/api/admin/products/{id},,3,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+fable5,admin,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/admin/products/{id},,2,90027,45,
+fable5,admin,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+fable5,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BQTL0Hr_.js""></script>"
+fable5,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BQTL0Hr_.js""></script>"
+fable5,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BQTL0Hr_.js""></script>"
+fable5,admin,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/admin/products/{id},Header User-Agent,3,10104,0,
+fable5,user_comum,Medium,Medium,Bypassing 403,A01,348,GET,http://localhost:5173/%2e/api/products/{id}/reviews,,5,40038,0,
+fable5,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,2,40040,14,
+fable5,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/assets,,1,40040,14,
+fable5,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+fable5,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+fable5,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+fable5,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,category,1,30003,3,HTTP/1.1 500 Internal Server Error
+fable5,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,3,30003,3,HTTP/1.1 500 Internal Server Error
+fable5,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+fable5,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/robots.txt,x-frame-options,1,10020,15,
+fable5,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/sitemap.xml,x-frame-options,1,10020,15,
+fable5,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/cart,,1,10037,13,x-powered-by: Express
+fable5,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/orders,,1,10037,13,x-powered-by: Express
+fable5,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/orders/{id},,1,10037,13,x-powered-by: Express
+fable5,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,1,10037,13,x-powered-by: Express
+fable5,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/users/me,,1,10037,13,x-powered-by: Express
+fable5,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+fable5,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-BLyIFoh3.css,x-content-type-options,1,10021,15,
+fable5,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-BQTL0Hr_.js,x-content-type-options,1,10021,15,
+fable5,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+fable5,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+fable5,user_comum,Informational,High,CORS Header,A01,942,DELETE,http://localhost:5173/api/cart/items/{id},,3,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+fable5,user_comum,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/cart/items/{id},,2,90027,45,
+fable5,user_comum,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+fable5,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BQTL0Hr_.js""></script>"
+fable5,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BQTL0Hr_.js""></script>"
+fable5,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-BQTL0Hr_.js""></script>"
+fable5,user_comum,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/cart/items/{id},Header User-Agent,3,10104,0,
+opus,admin,High,Low,Path Traversal,A01,22,PUT,http://localhost:5173/api/users/me,postalCode,1,6,33,
+opus,admin,High,Medium,SQL Injection,A03,89,POST,http://localhost:5173/api/admin/categories,name,1,40018,19,
+opus,admin,High,Medium,Source Code Disclosure - File Inclusion,A05,541,PUT,http://localhost:5173/api/admin/products/{id},categoryId,3,43,33,
+opus,admin,High,Medium,Source Code Disclosure - File Inclusion,A05,541,PUT,http://localhost:5173/api/users/me,postalCode,1,43,33,
+opus,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,2,40040,14,
+opus,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/assets/AdminNav-BCtX4YQA.js,,1,40040,14,
+opus,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+opus,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+opus,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+opus,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/admin/products,page,1,30003,3,HTTP/1.1 500 Internal Server Error
+opus,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,3,30003,3,HTTP/1.1 500 Internal Server Error
+opus,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+opus,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/robots.txt,x-frame-options,1,10020,15,
+opus,admin,Medium,Medium,Web Cache Deception,A05,444,PUT,http://localhost:5173/api/admin/products/{id},,3,40039,0,
+opus,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/admin/products,name,1,40014,8,
+opus,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/categories,name,1,40014,8,
+opus,admin,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/products,description,1,40014,8,
+opus,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api,,1,10037,13,x-powered-by: Express
+opus,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/auth/session,,1,10037,13,x-powered-by: Express
+opus,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/cart,,1,10037,13,x-powered-by: Express
+opus,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/categories,,1,10037,13,x-powered-by: Express
+opus,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,1,10037,13,x-powered-by: Express
+opus,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+opus,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-CD1JFMfo.css,x-content-type-options,1,10021,15,
+opus,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-CM8E6HnW.js,x-content-type-options,1,10021,15,
+opus,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+opus,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+opus,admin,Informational,High,CORS Header,A01,942,DELETE,http://localhost:5173/api/admin/products/{id},,2,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+opus,admin,Informational,High,CORS Header,A01,942,POST,http://localhost:5173/api/admin/categories,,1,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+opus,admin,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/admin/products/{id},,1,90027,45,
+opus,admin,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+opus,admin,Informational,Low,Cookie Slack Detector,A05,205,POST,http://localhost:5173/api/admin/categories,,1,90027,45,
+opus,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-CM8E6HnW.js""></script>"
+opus,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-CM8E6HnW.js""></script>"
+opus,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-CM8E6HnW.js""></script>"
+opus,admin,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/admin/products/{id},Header User-Agent,3,10104,0,
+opus,user_comum,High,Low,Path Traversal,A01,22,POST,http://localhost:5173/api/checkout,postalCode,1,6,33,
+opus,user_comum,High,Low,Path Traversal,A01,22,PUT,http://localhost:5173/api/users/me,postalCode,1,6,33,
+opus,user_comum,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,country,1,40024,19,
+opus,user_comum,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,line1,1,40024,19,
+opus,user_comum,High,Medium,SQL Injection - SQLite (Time Based),A03,89,POST,http://localhost:5173/api/checkout,name,1,40024,19,
+opus,user_comum,High,High,Server Side Template Injection,A03,1336,POST,http://localhost:5173/api/checkout,country,1,90035,20,
+opus,user_comum,High,Medium,Source Code Disclosure - File Inclusion,A05,541,PUT,http://localhost:5173/api/users/me,postalCode,1,43,33,
+opus,user_comum,Medium,Medium,Bypassing 403,A01,348,GET,http://localhost:5173/%2e/api/products/{id}/reviews,,4,40038,0,
+opus,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,2,40040,14,
+opus,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/assets/CartView-DrxGpCTk.css,,1,40040,14,
+opus,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+opus,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+opus,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+opus,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,2,30003,3,HTTP/1.1 500 Internal Server Error
+opus,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+opus,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/robots.txt,x-frame-options,1,10020,15,
+opus,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/sitemap.xml,x-frame-options,1,10020,15,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,city,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,country,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,line1,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,line2,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,name,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,phone,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,postalCode,1,40014,8,
+opus,user_comum,Low,Low,Cross Site Scripting Weakness (Persistent in JSON Response),A03,79,GET,http://localhost:5173/api/orders,state,1,40014,8,
+opus,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api,,1,10037,13,x-powered-by: Express
+opus,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/auth/session,,1,10037,13,x-powered-by: Express
+opus,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/cart,,1,10037,13,x-powered-by: Express
+opus,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/categories,,1,10037,13,x-powered-by: Express
+opus,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,1,10037,13,x-powered-by: Express
+opus,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+opus,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-CD1JFMfo.css,x-content-type-options,1,10021,15,
+opus,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-CM8E6HnW.js,x-content-type-options,1,10021,15,
+opus,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+opus,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+opus,user_comum,Informational,High,CORS Header,A01,942,DELETE,http://localhost:5173/api/cart/items/{id},,3,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+opus,user_comum,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/cart/items/{id},,2,90027,45,
+opus,user_comum,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+opus,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-CM8E6HnW.js""></script>"
+opus,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-CM8E6HnW.js""></script>"
+opus,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-CM8E6HnW.js""></script>"
+opus,user_comum,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/cart/items/{id},Header User-Agent,3,10104,0,
+qwen-3.8-8b,admin,High,Medium,Source Code Disclosure - File Inclusion,A05,541,PUT,http://localhost:5173/api/cart/items/{id},quantity,4,43,33,
+qwen-3.8-8b,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,2,40040,14,
+qwen-3.8-8b,admin,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/assets/AdminLoginView-OGk4cezc.js,,1,40040,14,
+qwen-3.8-8b,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+qwen-3.8-8b,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+qwen-3.8-8b,admin,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+qwen-3.8-8b,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,category,1,30003,3,HTTP/1.1 500 Internal Server Error
+qwen-3.8-8b,admin,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,2,30003,3,HTTP/1.1 500 Internal Server Error
+qwen-3.8-8b,admin,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/cart/items,productId,1,30003,3,HTTP/1.1 500 Internal Server Error
+qwen-3.8-8b,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+qwen-3.8-8b,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/robots.txt,x-frame-options,1,10020,15,
+qwen-3.8-8b,admin,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/sitemap.xml,x-frame-options,1,10020,15,
+qwen-3.8-8b,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/categories,,1,10037,13,x-powered-by: Express
+qwen-3.8-8b,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,2,10037,13,x-powered-by: Express
+qwen-3.8-8b,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products/{id},,1,10037,13,x-powered-by: Express
+qwen-3.8-8b,admin,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/users/me,,1,10037,13,x-powered-by: Express
+qwen-3.8-8b,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+qwen-3.8-8b,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-Br1KvAXM.js,x-content-type-options,1,10021,15,
+qwen-3.8-8b,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-DmAUWxVI.css,x-content-type-options,1,10021,15,
+qwen-3.8-8b,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+qwen-3.8-8b,admin,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+qwen-3.8-8b,admin,Informational,High,CORS Header,A01,942,DELETE,http://localhost:5173/api/admin/products/{id},,3,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+qwen-3.8-8b,admin,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/admin/products/{id},,2,90027,45,
+qwen-3.8-8b,admin,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+qwen-3.8-8b,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-Br1KvAXM.js""></script>"
+qwen-3.8-8b,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-Br1KvAXM.js""></script>"
+qwen-3.8-8b,admin,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-Br1KvAXM.js""></script>"
+qwen-3.8-8b,admin,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/admin/products/{id},Header User-Agent,3,10104,0,
+qwen-3.8-8b,user_comum,High,Medium,Source Code Disclosure - File Inclusion,A05,541,PUT,http://localhost:5173/api/cart/items/{id},quantity,2,43,33,
+qwen-3.8-8b,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/,,2,40040,14,
+qwen-3.8-8b,user_comum,Medium,High,CORS Misconfiguration,A01,942,GET,http://localhost:5173/assets/CatalogView-CNB21Bvj.js,,1,40040,14,
+qwen-3.8-8b,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/,,2,10038,15,
+qwen-3.8-8b,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/robots.txt,,1,10038,15,
+qwen-3.8-8b,user_comum,Medium,High,Content Security Policy (CSP) Header Not Set,A05,693,GET,http://localhost:5173/sitemap.xml,,1,10038,15,
+qwen-3.8-8b,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,category,1,30003,3,HTTP/1.1 500 Internal Server Error
+qwen-3.8-8b,user_comum,Medium,Medium,Integer Overflow Error,A03,190,GET,http://localhost:5173/api/products,page,2,30003,3,HTTP/1.1 500 Internal Server Error
+qwen-3.8-8b,user_comum,Medium,Medium,Integer Overflow Error,A03,190,POST,http://localhost:5173/api/cart/items,productId,1,30003,3,HTTP/1.1 500 Internal Server Error
+qwen-3.8-8b,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/,x-frame-options,2,10020,15,
+qwen-3.8-8b,user_comum,Medium,Medium,Missing Anti-clickjacking Header,A05,1021,GET,http://localhost:5173/sitemap.xml,x-frame-options,1,10020,15,
+qwen-3.8-8b,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/categories,,1,10037,13,x-powered-by: Express
+qwen-3.8-8b,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products,,2,10037,13,x-powered-by: Express
+qwen-3.8-8b,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/products/{id},,1,10037,13,x-powered-by: Express
+qwen-3.8-8b,user_comum,Low,Medium,"Server Leaks Information via ""X-Powered-By"" HTTP Response Header Field(s)",A01,497,GET,http://localhost:5173/api/users/me,,1,10037,13,x-powered-by: Express
+qwen-3.8-8b,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/,x-content-type-options,1,10021,15,
+qwen-3.8-8b,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-Br1KvAXM.js,x-content-type-options,1,10021,15,
+qwen-3.8-8b,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/assets/index-DmAUWxVI.css,x-content-type-options,1,10021,15,
+qwen-3.8-8b,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/robots.txt,x-content-type-options,1,10021,15,
+qwen-3.8-8b,user_comum,Low,Medium,X-Content-Type-Options Header Missing,A05,693,GET,http://localhost:5173/sitemap.xml,x-content-type-options,1,10021,15,
+qwen-3.8-8b,user_comum,Informational,High,CORS Header,A01,942,DELETE,http://localhost:5173/api/cart/items/{id},,3,40040,14,"access-control-allow-origin: http://localhost:5173
+access-control-allow-credentials: true"
+qwen-3.8-8b,user_comum,Informational,Low,Cookie Slack Detector,A05,205,DELETE,http://localhost:5173/api/cart/items/{id},,2,90027,45,
+qwen-3.8-8b,user_comum,Informational,Low,Cookie Slack Detector,A05,205,GET,http://localhost:5173/,,1,90027,45,
+qwen-3.8-8b,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/,,2,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-Br1KvAXM.js""></script>"
+qwen-3.8-8b,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/robots.txt,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-Br1KvAXM.js""></script>"
+qwen-3.8-8b,user_comum,Informational,Medium,Modern Web Application,,-1,GET,http://localhost:5173/sitemap.xml,,1,10109,-1,"<script type=""module"" crossorigin src=""/assets/index-Br1KvAXM.js""></script>"
+qwen-3.8-8b,user_comum,Informational,Medium,User Agent Fuzzer,,0,DELETE,http://localhost:5173/api/cart/items/{id},Header User-Agent,3,10104,0,

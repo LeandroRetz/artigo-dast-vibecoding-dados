@@ -1,0 +1,21 @@
+modelo,endpoint,id_alvo,dono_do_recurso,usuario_requisitante,status,violacao
+qwen-3.8-8b,GET /api/orders/{id},eb413cbb-df93-460b-85bb-4aec026388ce,admin@test.com,user@test.com,404,nao
+qwen-3.8-8b,PUT /api/reviews/{id},2,admin@test.com,user@test.com,403,nao
+qwen-3.8-8b,DELETE /api/cart/items/{id},3,admin@test.com,user@test.com,404,nao
+qwen-3.8-8b,GET /api/admin/orders,-,admin@test.com,user@test.com,403,nao
+qwen-3.8-8b,DELETE /api/reviews/{id},2,admin@test.com,user@test.com,403,nao
+opus,GET /api/orders/{id},c940cfc7-52ec-48be-a2e3-401ec5b4630d,admin@test.com,user@test.com,404,nao
+opus,PUT /api/reviews/{id},fe77dd4c-d427-44bd-aa67-9a90a39d2428,admin@test.com,user@test.com,403,nao
+opus,DELETE /api/cart/items/{id},0d39edcb-de44-48f5-902a-42bd17ef4cef,admin@test.com,user@test.com,404,nao
+opus,GET /api/admin/orders,-,admin@test.com,user@test.com,403,nao
+opus,DELETE /api/reviews/{id},fe77dd4c-d427-44bd-aa67-9a90a39d2428,admin@test.com,user@test.com,403,nao
+deepseek-mini-v4,GET /api/orders/{id},2,admin@test.com,user@test.com,403,nao
+deepseek-mini-v4,PUT /api/reviews/{id},2,admin@test.com,user@test.com,404,nao
+deepseek-mini-v4,DELETE /api/cart/items/{id},3,admin@test.com,user@test.com,404,nao
+deepseek-mini-v4,GET /api/admin/orders,-,admin@test.com,user@test.com,401,nao
+deepseek-mini-v4,DELETE /api/reviews/{id},2,admin@test.com,user@test.com,404,nao
+fable5,GET /api/orders/{id},0999d75f-7150-445f-a13e-20713b007541,admin@test.com,user@test.com,404,nao
+fable5,PUT /api/reviews/{id},2,admin@test.com,user@test.com,404,nao
+fable5,DELETE /api/cart/items/{id},3,admin@test.com,user@test.com,404,nao
+fable5,GET /api/admin/orders,-,admin@test.com,user@test.com,403,nao
+fable5,DELETE /api/reviews/{id},2,admin@test.com,user@test.com,404,nao

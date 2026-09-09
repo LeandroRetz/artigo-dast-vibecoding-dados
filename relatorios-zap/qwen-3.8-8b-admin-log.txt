@@ -1,0 +1,94 @@
+Found Java version 17.0.20
+Available memory: 23804 MB
+Using JVM args: -Xmx5951m
+Job replacer set deleteAllRules = true
+Job replacer set description = cookie de sessao do perfil admin
+Job replacer set matchType = req_header
+Job replacer set matchString = Cookie
+Job replacer set replacementString = token=<JWT-REDIGIDO>
+Job passiveScan-config set scanOnlyInScope = true
+Job passiveScan-config set maxAlertsPerRule = 0
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy set defaultStrength = medium
+Job activeScan-policy set defaultThreshold = medium
+Job spider set context = app
+Job spider set url = http://localhost:5173
+Job spider set maxDuration = 5
+Job spider set maxDepth = 10
+Job spider set maxChildren = 0
+Job spiderAjax set context = app
+Job spiderAjax set url = http://localhost:5173
+Job spiderAjax set maxDuration = 5
+Job spiderAjax set browserId = firefox-headless
+Job passiveScan-wait set maxDuration = 5
+Job activeScan set context = app
+Job activeScan set policy = policy-dast-vibecoding
+Job activeScan set maxRuleDurationInMins = 10
+Job activeScan set maxScanDurationInMins = 90
+Job activeScan set threadPerHost = 5
+Job report set template = traditional-json-plus
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = qwen-3.8-8b-admin
+Job report set reportTitle = DAST qwen-3.8-8b (admin)
+Job report set template = traditional-html
+Job report set reportDir = /zap/wrk/out
+Job report set reportFile = qwen-3.8-8b-admin
+Job report set reportTitle = DAST qwen-3.8-8b (admin)
+Job replacer set deleteAllRules = true
+Job replacer started
+Existing Replace rules deleted
+Job replacer finished, time taken: 00:00:00
+Job passiveScan-config started
+Job passiveScan-config finished, time taken: 00:00:00
+Job activeScan-policy set name = policy-dast-vibecoding
+Job activeScan-policy started
+Job activeScan-policy set default strength to MEDIUM
+Job activeScan-policy set default threshold to MEDIUM
+Job activeScan-policy set rule 40018 strength to HIGH
+Job activeScan-policy set rule 40018 threshold to LOW
+Job activeScan-policy set rule 40019 strength to HIGH
+Job activeScan-policy set rule 40019 threshold to LOW
+Job activeScan-policy set rule 40020 strength to HIGH
+Job activeScan-policy set rule 40020 threshold to LOW
+Job activeScan-policy set rule 40021 strength to HIGH
+Job activeScan-policy set rule 40021 threshold to LOW
+Job activeScan-policy set rule 40022 strength to HIGH
+Job activeScan-policy set rule 40022 threshold to LOW
+Job activeScan-policy set rule 40024 strength to HIGH
+Job activeScan-policy set rule 40024 threshold to LOW
+Job activeScan-policy set rule 40012 strength to HIGH
+Job activeScan-policy set rule 40012 threshold to MEDIUM
+Job activeScan-policy set rule 40014 strength to HIGH
+Job activeScan-policy set rule 40014 threshold to MEDIUM
+Job activeScan-policy set rule 40009 strength to MEDIUM
+Job activeScan-policy set rule 40009 threshold to MEDIUM
+Job activeScan-policy set rule 90019 strength to MEDIUM
+Job activeScan-policy set rule 90019 threshold to MEDIUM
+Job activeScan-policy set rule 90020 strength to MEDIUM
+Job activeScan-policy set rule 90020 threshold to MEDIUM
+Job activeScan-policy set rule 6 strength to MEDIUM
+Job activeScan-policy set rule 6 threshold to MEDIUM
+Job activeScan-policy set rule 7 strength to MEDIUM
+Job activeScan-policy set rule 7 threshold to MEDIUM
+Job activeScan-policy finished, time taken: 00:00:00
+Job spider started
+Job spider requesting URL http://localhost:5173
+Job spider found 9 URLs
+Job spider finished, time taken: 00:00:00
+Job spiderAjax started
+Job spiderAjax found 5,092 URLs
+Job spiderAjax finished, time taken: 00:04:10
+Job passiveScan-wait started
+Job passiveScan-wait finished, time taken: 00:00:00
+Job activeScan started
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+[Fatal Error] :1:3: The markup in the document preceding the root element must be well-formed.
+Job activeScan finished, time taken: 00:01:56
+Job report started
+Job report generated report /zap/wrk/out/qwen-3.8-8b-admin.json
+Job report finished, time taken: 00:00:00
+Job report started
+Job report generated report /zap/wrk/out/qwen-3.8-8b-admin.html
+Job report finished, time taken: 00:00:00
+Automation plan succeeded!
+>> Duracao: 6 min | exit=0
