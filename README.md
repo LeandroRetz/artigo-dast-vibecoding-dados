@@ -186,19 +186,6 @@ autenticação capturados nas requisições de evidência.
   medição sob condições controladas, com `N=1` por modelo, um único *spec* e uma
   única pilha tecnológica.
 
-## Ressalvas de leitura
-
-Registradas em detalhe no artigo e na [metodologia](metodologia/METODOLOGIA-DAST.md):
-
-- as regras de injeção SQL operam com `threshold: low`, elevando a taxa esperada
-  de falsos positivos **justamente na classe que mais separa os modelos**;
-- parte das regras vem de canais *alpha* e *beta*;
-- o *fallback* das SPA responde 200 a qualquer caminho, inflando a contagem
-  bruta de URLs — por isso a métrica normalizada por endpoint;
-- o spider AJAX não é perfeitamente reprodutível entre execuções;
-- `N=1` por modelo: as diferenças observadas não são separáveis da variabilidade
-  intrínseca entre gerações sucessivas de uma mesma configuração.
-
 ## Como citar
 
 > Retzlaff, L. L.; Motta, A. **Avaliando a Segurança do *Vibe Coding*: Uma
