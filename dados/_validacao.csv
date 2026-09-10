@@ -1,0 +1,5 @@
+modelo,alerta,cwe,metodo,endpoint,parametro,payload,medicao,veredito,defeito_real_observado
+deepseek-mini-v4,NoSQL Injection - MongoDB,943,GET,/api/products,search,search[$regex]=.*,"sem search: 9 resultados | com payload: 0 | literal inexistente: 0",falso positivo,-
+deepseek-mini-v4,SQL Injection - SQLite (Time Based),89,POST,/api/checkout,city,"case randomblob(1000000000) when not null then 1 else 1 end","sem payload: 0.951/0.345/0.331 s | com payload: 0.339/0.409/0.331 s | payload persistido verbatim na coluna city",falso positivo,-
+opus,SQL Injection - SQLite (Time Based),89,POST,/api/checkout,country,"' | case randomblob(10000000) when not null then \"\" else \"\" end | '","sem payload: 0.842/0.471/0.330 s | com payload: 0.325/0.423/0.359 s | payload persistido verbatim na coluna ship_country",falso positivo,-
+deepseek-mini-v4,SQL Injection,89,POST,/api/admin/products,name,"'","name normal: 201 | name=' : 201 (gravado literal) | repetir name=' : 500 | repetir nome normal: 500 | name=x' OR 1=1-- : 201 (gravado literal)",falso positivo,"violacao de UNIQUE em products.name devolve 500 em vez de 409"

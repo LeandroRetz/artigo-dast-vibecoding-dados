@@ -50,6 +50,11 @@ Misconfiguration*) — sem ocorrências mapeadas nas demais.
 - **IDOR:** 20 testes (5 por aplicação) em que o usuário comum autenticado
   requisitou recursos do administrador. **Nenhuma violação** — todas as
   respostas fora da faixa `2xx`.
+- **Validação manual:** quatro achados de severidade alta foram reproduzidos à
+  mão. **Nenhum se sustentou** — dois alertas nomeiam SGBDs que as aplicações não
+  usam, e o 500 que serviu de evidência a um terceiro decorre de violação de
+  unicidade, não de injeção. Detalhes e medições no
+  [Apêndice D](apendices/D-validacao-manual.md).
 - **Sessão:** as quatro aplicações usam JWT em cookie `httpOnly`, `HS256`,
   `SameSite=Lax`. **Nenhuma das quatro invalida o token no logout** — a rota
   limpa o cookie e devolve 204, mas o token anterior segue aceito em rota
@@ -68,6 +73,7 @@ apendices/
   A-especificacao.md      spec entregue aos quatro modelos, verbatim
   B-intervencoes.md       toda alteração feita nas aplicações, arquivo a arquivo
   C-configuracao-zap.md   add-ons, política, parâmetros, sequência de jobs
+  D-validacao-manual.md   reprodução manual dos achados de severidade alta
 metodologia/
   METODOLOGIA-DAST.md     procedimento operacional completo e decisões de instrumentação
   ambiente.txt            inventário do ambiente colhido na execução
@@ -79,6 +85,7 @@ dados/
   _pendente_mapeamento.csv  alertas sem categoria OWASP automática
   _idor.csv               auditoria manual de controle de acesso
   _sessao.csv             auditoria manual de gerenciamento de sessão
+  _validacao.csv          reprodução dos achados de severidade alta, com medições
   _fingerprints.txt       verificação de integridade das 8 varreduras
   seed-<modelo>.md        dados semeados e IDs criados, por modelo
   _snapshot-<modelo>.sql  estado inicial do banco, restaurado entre os perfis
@@ -133,6 +140,7 @@ Passo a passo, um modelo por vez:
 ./04-preparar.sh <modelo> subir                          # zera o banco, sobe produção, semeia
 RESTAURAR_CMD=./04-restaurar.sh ./01-varrer.sh <modelo>  # varre os dois perfis
 ./07-fase4.py <modelo>                                   # auditoria manual de IDOR e sessão
+./08-validar.sh <modelo>                                 # reproduz os achados de severidade alta
 ```
 
 Duração observada: **~105 min por perfil**, ~3,5 h por modelo, ~14 h no total.
@@ -148,6 +156,7 @@ Duração observada: **~105 min por perfil**, ~3,5 h por modelo, ~14 h no total.
 | `05-rodar-tudo.sh` | orquestra a execução completa |
 | `06-graficos.py` | gera as figuras a partir dos dados agregados |
 | `07-fase4.py` | auditoria manual de IDOR e gerenciamento de sessão |
+| `08-validar.sh` | reprodução manual dos achados de severidade alta |
 
 `00-setup.sh` verifica explicitamente que todos os add-ons foram instalados: o
 `-addoninstall` do ZAP retorna zero mesmo quando o download falha, de modo que a
