@@ -457,7 +457,7 @@ versão, que garante consistência entre as oito varreduras, mas não
 elimina a limitação.
 
 **Contagem de URLs inflada.** O *fallback* das SPA responde 200 a qualquer
-caminho (Seção 4.5). Normalizar por *endpoint* de API.
+caminho (Seção 4.5). A métrica calculada normaliza pelo número de caminhos distintos com achados; não equivale a um inventário validado da API.
 
 **Sessão estática.** O cookie é capturado uma vez por passagem e não é
 renovado. Caso o active scan invalide a sessão, as requisições seguintes
@@ -522,7 +522,7 @@ Seção 5.3 já consolida parte desses dados por inspeção.
 Dado o *fallback* das SPA (Seção 4.5), recomenda-se reportar:
 
 - achados únicos por modelo, agregando os dois perfis
-- achados por *endpoint* de API efetivo (métrica normalizada)
+- achados por caminho normalizado com ao menos um alerta (não mede cobertura ou inventário da API)
 - distribuição por severidade
 - achados exclusivos do perfil administrativo
 - distribuição por categoria OWASP Top 10
