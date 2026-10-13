@@ -21,14 +21,14 @@ Agents autonomously corrected compilation-blocking errors. The author reported 1
 
 ## Scanner results
 
-| Application | High | Medium | Low | Informational | Total | API endpoints | Alerts/endpoint |
+| Application | High | Medium | Low | Informational | Total | Paths with alerts | Alerts/path |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | DeepSeek | 8 | 20 | 21 | 9 | 58 | 17 | 3.41 |
 | Opus | 9 | 13 | 21 | 12 | 55 | 20 | 2.75 |
 | Qwen | 1 | 12 | 9 | 10 | 32 | 14 | 2.29 |
 | Fable | 0 | 12 | 10 | 10 | 32 | 14 | 2.29 |
 
-Counts are deduplicated by endpoint, parameter and alert rule across both profiles. They are scanner alerts, not individually confirmed vulnerabilities. Endpoint normalisation does not measure crawling completeness.
+Counts are deduplicated by endpoint, parameter and alert rule across both profiles. They are scanner alerts, not individually confirmed vulnerabilities. The denominator counts distinct normalised paths with alerts, including non-API paths; it is not an inventory of API routes or a measurement of crawling completeness.
 
 The final reproduction on 10 September 2026 covered **all 18 unique high-severity alerts** and refuted them. This supersedes the earlier partial validation in the original Appendix D. Medium, low and informational alerts were not manually reproduced. The frozen plan includes SQL-injection rules with a low alert threshold and alpha/beta add-ons, which limit interpretation of raw counts.
 
