@@ -1,0 +1,827 @@
+[
+  {
+    "application": "deepseek",
+    "path": "src/index.ts",
+    "sha256": "0d055beba918c5b7455222d98ae44dc60aae9bd7f8aadf9412918405a07b779f"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/config.ts",
+    "sha256": "33dac1a06c46ddd49e62d96c16ed9c8ead9f4994d6a354f75db90a12e9d47468"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/auth/routes.ts",
+    "sha256": "24d250684d243e64319085f39e11e127861cf2efd8a0d787d1cc477ca4f5a758"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/auth/service.ts",
+    "sha256": "7c0618ccf5cf423825227354644a1f85e25e96d700b8ba0e1a4fa84af591c224"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/auth/repository.ts",
+    "sha256": "8a2bfd4f7a4d8991dd20fcd8e9b8ad829e222376bff79526a01ff6d7eed9e7ee"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/auth/controller.ts",
+    "sha256": "4b77425a6a71eb4e6388309ca61660d36129e90139c76b5537bcb9359fbb923a"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/auth/middleware.ts",
+    "sha256": "35ffade1bbc7041ea9a4d190a6fa4418b9497ca454d575f52a456b0c9643e865"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/cart/routes.ts",
+    "sha256": "2d6086ee3597d86266332e477ab76553421d8a7c9875e917f83525b9a865dd0f"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/cart/service.ts",
+    "sha256": "1fea8aaa1b6bc92c088874cedad0f07a7d22e00505f1cc5e32e5474daeeea27f"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/cart/repository.ts",
+    "sha256": "74253050bb625dedd6dbc23511882565c1b9e116da0497fed31673b6917ce291"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/cart/controller.ts",
+    "sha256": "6a412800e89cb96eeb38cad143f8b5d91baf34a01e42003c3fddd3ab1a3d0156"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/admin/routes.ts",
+    "sha256": "d1755b3335984b90ae301486bd8e3002b58ff52f848eea2b10a4405d46fc2857"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/admin/controller.ts",
+    "sha256": "534f643d6a5a1c170b4bfa31d598101240140364923737eebbcf685fc5d542ee"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/users/routes.ts",
+    "sha256": "85a3dac3b00caa3f3868421e8b6c2c4a8e78ba6c38ce559280abb125eba49834"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/users/service.ts",
+    "sha256": "ac50cc30a53cdcc129819074d5255d6f915d63aa7ac454d74f383826edc533d3"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/users/repository.ts",
+    "sha256": "b923c4a8a636cb0c2f67e8c5a71adc7bda4e54bc620c9371d2e4226a125e6f2b"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/users/controller.ts",
+    "sha256": "28fcf76c9110757b38f4152225a9d9d66150f861d2594cfbbf27f4176244af02"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/orders/routes.ts",
+    "sha256": "4f0cb78eb875dcd3708a0afb4803e78380ae4e16d0c8a0b336736eb9f2915f9b"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/orders/service.ts",
+    "sha256": "7c9eb7e1eeda326b317b9ed8329004f434288ff950a9a1efc6b3bd9f502f8e61"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/orders/repository.ts",
+    "sha256": "d53f4262cf4fc0e1427395abf13b9e60c7d5ac61e6e6acd3a7a12159cfce7d45"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/orders/controller.ts",
+    "sha256": "5f8c4b352c29a9886ebb0b2571828b1158ec6176f49a226de5b958c7816e200c"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/reviews/routes.ts",
+    "sha256": "37da6feb0418066e5aee378e8c7bfb81cbbe902020beaca331da0801579e1069"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/reviews/service.ts",
+    "sha256": "a4a6800045909e129c4cc57c8b21dc188bf42c32b352eb472998a54593e9c67a"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/reviews/repository.ts",
+    "sha256": "8863f4d28721673eb2112d7bd464087e696ff6d6941c8af047c3f29c57361c17"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/reviews/controller.ts",
+    "sha256": "3e5748d3358320815de93a0234b7160c6785db1b4ec5b602f2be1aa22a7e424f"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/shared/mailer.ts",
+    "sha256": "78dfbb1a8a897c9df46269d3249e703d9fa616cc8c50ba6ef32b31fb588ee07f"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/shared/http-error.ts",
+    "sha256": "4a1d87239b47c6921a496629d4481de6ae5bbf6ee6896c066f465b242820bdfc"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/shared/async-wrap.ts",
+    "sha256": "250983eec426eda24f82ea6dcab08cd2763ccfa257717e53886681d9fe509957"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/checkout/routes.ts",
+    "sha256": "340c3608db022a6cfe6cda4388160f1e9832d5365b61673d46126926525df8b6"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/checkout/service.ts",
+    "sha256": "9bc1509fb382c7a5871946de5cdf9ddc59cfad1423f76f33fe38fd706db1cc18"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/checkout/controller.ts",
+    "sha256": "f7d54ef802fa3a69418126f6fa800a67e9271fc8883c2e453c03a333c741ad84"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/db/seed.ts",
+    "sha256": "52e1bf705fdf680355c676f7cb8b00315f01edf285c7dbc66fc981db07a3a53c"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/db/pool.ts",
+    "sha256": "ac4e9c8c2290347bf3f75b92379e3948f2f68ec30408746b1884fabeaa8950ac"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/db/migrate.ts",
+    "sha256": "7f165f13ed78c2d3202e140ab9470914dd089e154d3c81309c1691eb830dd994"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/products/routes.ts",
+    "sha256": "4982c280340c51db2f4505f7ea941d7756150e9ed2dfd6cd401deb9820dc7221"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/products/service.ts",
+    "sha256": "c1c1258239fd88425a3516547055457d82205eef1d5721ee87b099a9c0c2256e"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/products/repository.ts",
+    "sha256": "423d75a578566754e06836e32eafb5723dc25820cfbd9d04d0196a86572ffa26"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/products/controller.ts",
+    "sha256": "4f70b59dae9987e3ae5be01aa9eed24ec68eea705d3ca47ff8f905fc49575d51"
+  },
+  {
+    "application": "deepseek",
+    "path": "src/db/migrations/001_init.sql",
+    "sha256": "6c7f9e0e8ac70400e0d2e4bbac8980e3a3067f6260f74b9c63f5fd119e38cdfb"
+  },
+  {
+    "application": "gwen",
+    "path": "src/server.ts",
+    "sha256": "1efaff6716dcf7d256467fcf5698716d8447c44b69d9b8b50456109ccc89de7a"
+  },
+  {
+    "application": "gwen",
+    "path": "src/app.ts",
+    "sha256": "1756d8180739f1ade87410262d58816b2de8cf58d6ab87350688d3075c246886"
+  },
+  {
+    "application": "gwen",
+    "path": "src/auth/auth.routes.ts",
+    "sha256": "f9c50586f9d14a423cbbd3c0b03277e86566b22e08d0a689cf76313ba3dbb4d5"
+  },
+  {
+    "application": "gwen",
+    "path": "src/auth/auth.controller.ts",
+    "sha256": "4c005f35bd4f93d6547d6edfb08db48f90d5c5a01ddaf6e230456d58cf928723"
+  },
+  {
+    "application": "gwen",
+    "path": "src/auth/auth.repository.ts",
+    "sha256": "130ef412e870553b8db48d52d13855666759eac06369ca12cf698ee9fed9bfae"
+  },
+  {
+    "application": "gwen",
+    "path": "src/auth/auth.service.ts",
+    "sha256": "d849359f908555e5cb594b1733493f509e0d933004ddc19e7a6d64b3abcd4bf8"
+  },
+  {
+    "application": "gwen",
+    "path": "src/cart/cart.service.ts",
+    "sha256": "b63c4236b75d6a50624197787becb8cd4202a577d60fa5133dfcafdfd83d7090"
+  },
+  {
+    "application": "gwen",
+    "path": "src/cart/cart.repository.ts",
+    "sha256": "1093c92b43bf5814750189e8b50a16ddbce682b8d774a23d198f93e69431f966"
+  },
+  {
+    "application": "gwen",
+    "path": "src/cart/cart.controller.ts",
+    "sha256": "3f4b1a1e546217dcfe06fc5bbc6151aaa35007f1c7e796e6c58d1673cf8cbe9d"
+  },
+  {
+    "application": "gwen",
+    "path": "src/cart/cart.routes.ts",
+    "sha256": "6125a22ca20ee80771e4a7291569a986d068c9d67607d490ba03cd5b63d3f809"
+  },
+  {
+    "application": "gwen",
+    "path": "src/admin/admin.routes.ts",
+    "sha256": "afa1c7871ec0b9a9aee421135139b107cbe86561fbcea66d7a90786b9542841a"
+  },
+  {
+    "application": "gwen",
+    "path": "src/admin/admin.controller.ts",
+    "sha256": "cf382d538b4980ffece0f359ee8212a9a48018f2c8bf1a14449023107fc8862f"
+  },
+  {
+    "application": "gwen",
+    "path": "src/config/env.ts",
+    "sha256": "a4b93973c0b7fa86e674edfd47408d5bc1a7272775915c4c9605b9db2e3101e1"
+  },
+  {
+    "application": "gwen",
+    "path": "src/users/users.repository.ts",
+    "sha256": "a89108f56677376295bb5315b88f20c6318f915b2f1b55ba72a2c1762ff3ee24"
+  },
+  {
+    "application": "gwen",
+    "path": "src/users/users.service.ts",
+    "sha256": "1f69b859b8774974524dcea9004439f5c3c790119889531f12954fa428bb6332"
+  },
+  {
+    "application": "gwen",
+    "path": "src/users/users.routes.ts",
+    "sha256": "65ce666ff78bcb8d75aefff7c504c6fcc552e3d334caf619b391f68a83aa0f7f"
+  },
+  {
+    "application": "gwen",
+    "path": "src/users/users.controller.ts",
+    "sha256": "7f9ea401e40f46ce01ad3b0c5ef0a930c65cb029b2b307c4122171c2416c9210"
+  },
+  {
+    "application": "gwen",
+    "path": "src/stripe/stripe.service.ts",
+    "sha256": "8f703f793d0dc0fe77d08722f4d42f659e89a38d57a5938415730230b15bdf95"
+  },
+  {
+    "application": "gwen",
+    "path": "src/orders/orders.routes.ts",
+    "sha256": "fa735dac0bbb22bdfb77239ad7a45c54f61e083bfd520c2ddb83db4849dc6059"
+  },
+  {
+    "application": "gwen",
+    "path": "src/orders/orders.controller.ts",
+    "sha256": "d3df7b5e72b919c39cee826f972508b164c92781ed00d42a8989d91e88e4376b"
+  },
+  {
+    "application": "gwen",
+    "path": "src/orders/orders.service.ts",
+    "sha256": "290a01f328e3bcc08583a548c9095f5b37ef54ba8459aa1658df676dce2c2c65"
+  },
+  {
+    "application": "gwen",
+    "path": "src/orders/orders.repository.ts",
+    "sha256": "f484ac77eb17d65bbed65989256d5dd9c6c1a3f732f5a175a6871dad26db6ee4"
+  },
+  {
+    "application": "gwen",
+    "path": "src/reviews/reviews.service.ts",
+    "sha256": "58c154310d4cda57ef053daa206bb14b109b38a3e244623602df5ffd32a46d27"
+  },
+  {
+    "application": "gwen",
+    "path": "src/reviews/reviews.repository.ts",
+    "sha256": "d91251b26d26a2c47a93eb9f86ebbb057b4c775eb9a6610838cfdb9bf729b613"
+  },
+  {
+    "application": "gwen",
+    "path": "src/reviews/reviews.controller.ts",
+    "sha256": "017687d0e9c792faaa84ba53d2be9fb55d607ee84ecd4c5f288054d85ed9295c"
+  },
+  {
+    "application": "gwen",
+    "path": "src/reviews/reviews.routes.ts",
+    "sha256": "3de676d44dc256740c910eedf045be31438b6c216d7e15b76b8ca29330a5f9d4"
+  },
+  {
+    "application": "gwen",
+    "path": "src/shared/errors.ts",
+    "sha256": "9f2634d6a91f328bbc82613948197bb2f37a9af1fe2f73703d890d9846577cbb"
+  },
+  {
+    "application": "gwen",
+    "path": "src/shared/db.ts",
+    "sha256": "3e3a915f242108d5b8ba0168488c2721b023f5208b66efe8d56fe5d9a306cb72"
+  },
+  {
+    "application": "gwen",
+    "path": "src/shared/middleware.ts",
+    "sha256": "94b2e37be92c367b5373ee4eb1fe354270fc3d1f495b438a8e478090f2f3ff24"
+  },
+  {
+    "application": "gwen",
+    "path": "src/checkout/checkout.controller.ts",
+    "sha256": "0cd17dda11b33fe368217a937d835e05d6396ed2dfdfe9d0806c232aa6736ac1"
+  },
+  {
+    "application": "gwen",
+    "path": "src/checkout/checkout.routes.ts",
+    "sha256": "89f8d0c827d0374e4564f99b0d6be79c1794ab26406c9c4a95f72f7ff8541c60"
+  },
+  {
+    "application": "gwen",
+    "path": "src/checkout/checkout.service.ts",
+    "sha256": "28ad0739e8be1dc170ad76fae6f8ea9e8e6feeb7f1cbe6c4866c3e1f1cb76845"
+  },
+  {
+    "application": "gwen",
+    "path": "src/db/seed.ts",
+    "sha256": "8ac3071509d320ba4eeca8056f424689e58f2a43f25a864b450e6a4f8d8af92f"
+  },
+  {
+    "application": "gwen",
+    "path": "src/db/migrate.ts",
+    "sha256": "28fe35690f8af5335063d9497ff66f601989452b829e32e31108866d2edd1dfd"
+  },
+  {
+    "application": "gwen",
+    "path": "src/email/email.service.ts",
+    "sha256": "553ba45c41b74885734dbc29a3e671d7a6c954eb56018fc01ffa7cd047a1e00d"
+  },
+  {
+    "application": "gwen",
+    "path": "src/products/products.routes.ts",
+    "sha256": "f562f3e2df2c8b34338328b71469b818c48faa382e2a796e52296c6a761155e7"
+  },
+  {
+    "application": "gwen",
+    "path": "src/products/products.service.ts",
+    "sha256": "ca10ba3ababe90ef56feac47fc9d83a4059bf32610cff3581ee9ccd022b6628a"
+  },
+  {
+    "application": "gwen",
+    "path": "src/products/products.repository.ts",
+    "sha256": "411c0f0fb216db3e9e05a192df36afb0238cacbd58ba10f7e723542ac015efd1"
+  },
+  {
+    "application": "gwen",
+    "path": "src/products/products.controller.ts",
+    "sha256": "fdf7a500371ee031f74b20e0f365fd5feedf3f93c7d6b05292cc5c2c12c47ed2"
+  },
+  {
+    "application": "fable",
+    "path": "src/server.ts",
+    "sha256": "e9ebfdce238b12342d24639c66669248ca5215f0bf25a3e8e246532af1ef48bc"
+  },
+  {
+    "application": "fable",
+    "path": "src/app.ts",
+    "sha256": "a21668c88f7877ca99b6def1965274127f5456e6a661cc131e214856652a49c5"
+  },
+  {
+    "application": "fable",
+    "path": "src/auth/auth.middleware.ts",
+    "sha256": "5d757d733f92757a90a7c31b4faa716c7e288607ce9f46097918c2b343a9591b"
+  },
+  {
+    "application": "fable",
+    "path": "src/auth/passwordReset.service.ts",
+    "sha256": "91899d10c4dfca800034fbfde6e51d06d72e6cae93c94c385e9c950865ef840a"
+  },
+  {
+    "application": "fable",
+    "path": "src/auth/auth.routes.ts",
+    "sha256": "25b35034ac73048e5f28fbd671c98302ec4900d0d25d6a6e8f502c94dfda9b08"
+  },
+  {
+    "application": "fable",
+    "path": "src/auth/auth.controller.ts",
+    "sha256": "1fc3ebffcdd39cf1c82cda3b5f223f8fc742c4d2fb9fc2959bf941a9cb54d228"
+  },
+  {
+    "application": "fable",
+    "path": "src/auth/auth.service.ts",
+    "sha256": "d70c09d201dd30ee8534cfbcda3e0dbad5810d024148720183e79ec56d03d82d"
+  },
+  {
+    "application": "fable",
+    "path": "src/cart/cart.service.ts",
+    "sha256": "d862d823b482c818811818b7a15cce7341574f23d7e2c9107e050fd7edec3908"
+  },
+  {
+    "application": "fable",
+    "path": "src/cart/cart.repository.ts",
+    "sha256": "373a937c89898ec0bd746cc1b1bef5aa944864dc5734fd152bd56d2a3d4ecca3"
+  },
+  {
+    "application": "fable",
+    "path": "src/cart/cart.controller.ts",
+    "sha256": "2cc65468c12fe924d20e8474dba74fcc5f5cc4ec88aa06a31dc01b58b79b05ff"
+  },
+  {
+    "application": "fable",
+    "path": "src/cart/cart.routes.ts",
+    "sha256": "282c31f489f17c93113ea0cf078c7008a05a6e2fca91c0bd440a4ddf01c787b4"
+  },
+  {
+    "application": "fable",
+    "path": "src/users/users.repository.ts",
+    "sha256": "a36acd4611d813c332d8a0b7b9a68358c1fb998761af035070c162b7472ff4d6"
+  },
+  {
+    "application": "fable",
+    "path": "src/users/users.service.ts",
+    "sha256": "91e3a56f455ebde3b2816373f950b27e5436997dd30af0e51388025f51683041"
+  },
+  {
+    "application": "fable",
+    "path": "src/users/users.routes.ts",
+    "sha256": "5e460b4aca7532a22f7aa13797c35b47c4ec3cc22d4ec96cb982b7b79b35cc74"
+  },
+  {
+    "application": "fable",
+    "path": "src/users/users.controller.ts",
+    "sha256": "4f23c1f74de2699097f8d9a02c54962c37260ca1d222b562eb5ebea3989f132b"
+  },
+  {
+    "application": "fable",
+    "path": "src/orders/orders.routes.ts",
+    "sha256": "117398fb2d61a542ff0b333acc5dd0c2934281d37aeef7715f39f99f7e9b29e4"
+  },
+  {
+    "application": "fable",
+    "path": "src/orders/orders.controller.ts",
+    "sha256": "244c6ac4c4fc7a9a289da276fdf8097b78fc87765ef31ab323eb1f9b0449b39b"
+  },
+  {
+    "application": "fable",
+    "path": "src/orders/payment.gateway.ts",
+    "sha256": "164e314fbdd04f9bb17803224b80c4da60f0ed79c2ce5120ff53b4666606ad2a"
+  },
+  {
+    "application": "fable",
+    "path": "src/orders/orders.repository.ts",
+    "sha256": "ceb9064a6769baf69c1966bda4252246106193ed10d109e3b9df7a81d07718a0"
+  },
+  {
+    "application": "fable",
+    "path": "src/orders/checkout.service.ts",
+    "sha256": "5e1de0d255c5f3c17b08cf65cb1d87dba6e8ca0035cf66f0502d895be6d84d86"
+  },
+  {
+    "application": "fable",
+    "path": "src/reviews/reviews.service.ts",
+    "sha256": "bac65353d1541301a78f9d91d602a12289fedfbd3647a23c97ac8e55dfacc9f3"
+  },
+  {
+    "application": "fable",
+    "path": "src/reviews/reviews.repository.ts",
+    "sha256": "fa46af44c8c696aac54d2294693c60875ea6bd8476e707879e1f08f74d894406"
+  },
+  {
+    "application": "fable",
+    "path": "src/reviews/reviews.controller.ts",
+    "sha256": "5c9ef39824a3123e121e3771c1cbc3972fc1bc9baef148948cdbb4d48db3ac5d"
+  },
+  {
+    "application": "fable",
+    "path": "src/reviews/reviews.routes.ts",
+    "sha256": "530b7ef3331284a182010c51c87f95ea126d60b830f5c103b3dbab7a47c5ae6c"
+  },
+  {
+    "application": "fable",
+    "path": "src/shared/errors.ts",
+    "sha256": "4223062b3a7ec7e66406f1e77bb79aa0e21cafb615e0cb7d64f6d8c48e0be9b2"
+  },
+  {
+    "application": "fable",
+    "path": "src/shared/config.ts",
+    "sha256": "821c57273d941fb1c0943fc195f110d9c5f05293b7bc3815b379460297fc6a5f"
+  },
+  {
+    "application": "fable",
+    "path": "src/shared/email.ts",
+    "sha256": "9e7d2ae91a6a66b07d31d3c3b04e83e806bf435a2027635c9aa1d22885b049c6"
+  },
+  {
+    "application": "fable",
+    "path": "src/shared/db.ts",
+    "sha256": "1b0d018e26ea9bba62edfd5ab87e2fdb236322fb1ec4f6f49bd7ac091093eeb8"
+  },
+  {
+    "application": "fable",
+    "path": "src/shared/validate.ts",
+    "sha256": "32a2ee4eb206dc69556fc27cf7ab8e2276d8041eef00c0fa082457a70138abc3"
+  },
+  {
+    "application": "fable",
+    "path": "src/db/seed.ts",
+    "sha256": "904626fa78a236a08c80540051025c96191bcaa7864a1a2a345b4f935cb6a571"
+  },
+  {
+    "application": "fable",
+    "path": "src/db/migrate.ts",
+    "sha256": "e5637e3a32169cef23bc86a41acb4181e12a6557507c830f2cf72808b7674847"
+  },
+  {
+    "application": "fable",
+    "path": "src/products/products.routes.ts",
+    "sha256": "124d7aa69dd92979cb3fedfccfea56c2f59a32357fbf1e6dc78f3a1dbf65152c"
+  },
+  {
+    "application": "fable",
+    "path": "src/products/products.service.ts",
+    "sha256": "0e785bb4376605d82f2a99524e5df8833c2bab4a3575b0116a33613fc33ae790"
+  },
+  {
+    "application": "fable",
+    "path": "src/products/products.repository.ts",
+    "sha256": "00e552b3eeb59460a13a61e9e8e31c56c0ab671f0e8aa1ad380665210d5d7001"
+  },
+  {
+    "application": "fable",
+    "path": "src/products/products.controller.ts",
+    "sha256": "1365489723f406ffa6f996f89c3ecb5aa24b3f9c683183f5df533e06936f30f2"
+  },
+  {
+    "application": "fable",
+    "path": "src/db/migrations/001_init.sql",
+    "sha256": "b46c6c66416c3f90c10f592bd3d6e824d3c193882978793e833d175b2b591287"
+  },
+  {
+    "application": "opus",
+    "path": "src/server.ts",
+    "sha256": "b462f97e4fbea5f0b3a4fc2e1eeac2b1e3f7fba46d13f447de9a844bcd911f58"
+  },
+  {
+    "application": "opus",
+    "path": "src/app.ts",
+    "sha256": "acd72bc79ed5d5ff327ebacf7fd1954483f92a09c311bb438f414c9ce52e0e5e"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.middleware.ts",
+    "sha256": "63c7f25d27376a4fb83a57d139b21ef6c55aa1ea314bb6d2be4aacf75fd950bc"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.types.ts",
+    "sha256": "a1a21c879210772e552b27ea3b7a3c6bec0f5245c383d69e82c1368b27a2d004"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.cookie.ts",
+    "sha256": "07a7702cf2ae794a30b29301271d13d5bd88c16ceb4c07e4da3dade6c422c0f0"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.routes.ts",
+    "sha256": "9fa7f576b8f08cf348a64b8ac3ea6574bc1152f57183fb28c0d907a40f54ef7f"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.controller.ts",
+    "sha256": "c50e65ecd09c2df3f65ed561007e58167802ad6f81af453543b27f519d4e3400"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.repository.ts",
+    "sha256": "9c77042700f23e9d58af310f87a3adb7a45fe0f64e3cb18e0e6ccd07d5deacf4"
+  },
+  {
+    "application": "opus",
+    "path": "src/auth/auth.service.ts",
+    "sha256": "a7ba5232d3966e8080faebca2cbc0cceff8f31274ba2fd17365ef953fa4c3622"
+  },
+  {
+    "application": "opus",
+    "path": "src/cart/cart.service.ts",
+    "sha256": "407ec316bb609132a328115a23f1632b5f7d0acfd133162a2815943155064a76"
+  },
+  {
+    "application": "opus",
+    "path": "src/cart/cart.repository.ts",
+    "sha256": "752de6bcc45839dc2e987cb5c10c2c75910a2728aa44a684c53fa1774b609b22"
+  },
+  {
+    "application": "opus",
+    "path": "src/cart/cart.controller.ts",
+    "sha256": "dbc1dd9f0df93e19f7f6386b82ae697659cbb4fa8c59172d226b802a5ba30d80"
+  },
+  {
+    "application": "opus",
+    "path": "src/cart/cart.routes.ts",
+    "sha256": "de00b711f3e5260371206c5f0aa8fb279345a9cb8d7ddf1a887454116099aa15"
+  },
+  {
+    "application": "opus",
+    "path": "src/cart/cart.types.ts",
+    "sha256": "f377c1fb9ced4c8da1ed863b39c1f7311197bd6e1ca8341f58a211afbd23f85b"
+  },
+  {
+    "application": "opus",
+    "path": "src/users/users.repository.ts",
+    "sha256": "3b15c0f251ad1fa206d334c13ccf134b6704b461b0405a45254638413e9f2e5e"
+  },
+  {
+    "application": "opus",
+    "path": "src/users/users.service.ts",
+    "sha256": "36183346627de85c435ac9b4b1a987df190d98eee8af52710cbf7a2ccc0745fc"
+  },
+  {
+    "application": "opus",
+    "path": "src/users/users.types.ts",
+    "sha256": "8d89c93d70b264ff1296e7b411ac1fd443f92bfdfc85fdc30dee08abaf6d870b"
+  },
+  {
+    "application": "opus",
+    "path": "src/users/users.routes.ts",
+    "sha256": "2698176bbcd777fce6b54dc1d208a926d65f49247bb70ff75520186075c6528c"
+  },
+  {
+    "application": "opus",
+    "path": "src/users/users.controller.ts",
+    "sha256": "1893d9f4cdafd2c55589c9cb5acd6cacd1d0ddb4b9c0af3b9d08cfa352e78f31"
+  },
+  {
+    "application": "opus",
+    "path": "src/orders/orders.routes.ts",
+    "sha256": "65b2e44818291292ad62bb6aab5d1eb9464c66212ae88462d647afe651838cf4"
+  },
+  {
+    "application": "opus",
+    "path": "src/orders/orders.controller.ts",
+    "sha256": "41d0a2fbcf9911cd8dd358148a8f31c382cb8142b53d265db56e43be23820c4f"
+  },
+  {
+    "application": "opus",
+    "path": "src/orders/orders.service.ts",
+    "sha256": "15e682eee1d83aa850c3f9a71676237199911eb0915bfc293e590cc0894b8aee"
+  },
+  {
+    "application": "opus",
+    "path": "src/orders/orders.types.ts",
+    "sha256": "7a26636e7ef171fa7b352d52e5885cecc6f06295145156a5ab288ed9be86ce24"
+  },
+  {
+    "application": "opus",
+    "path": "src/orders/orders.repository.ts",
+    "sha256": "bb518eaf5854316304b395d44eb74e9a06c6fa0c76a690cdd408ce04d7a5c1c9"
+  },
+  {
+    "application": "opus",
+    "path": "src/reviews/reviews.service.ts",
+    "sha256": "2934ded32563083da0f38a692a6cec5ca73615524e9f645757dc20ef8e255afc"
+  },
+  {
+    "application": "opus",
+    "path": "src/reviews/reviews.repository.ts",
+    "sha256": "7a56ee2790fd10d94b00641101affab8042def5e0e2635844ff3e72188459f3b"
+  },
+  {
+    "application": "opus",
+    "path": "src/reviews/reviews.types.ts",
+    "sha256": "c3a43203e05a15f3058abd1f2ca429efdddcff9c0fb757a7b7b66cb8f7e9c7bf"
+  },
+  {
+    "application": "opus",
+    "path": "src/reviews/reviews.controller.ts",
+    "sha256": "26b54fe99c2439e7689a85e5d03f98a290f7bf25e92e00936f75bb06b47755d6"
+  },
+  {
+    "application": "opus",
+    "path": "src/reviews/reviews.routes.ts",
+    "sha256": "6723b3675899b76a71e2b8bb18a226bce950049d87e505162d14b51b84b11bf3"
+  },
+  {
+    "application": "opus",
+    "path": "src/checkout/checkout.controller.ts",
+    "sha256": "aa7b4aa394bea04a812417e82f5ba08419e5aeb668c23e274004bccdbdf6d5a0"
+  },
+  {
+    "application": "opus",
+    "path": "src/checkout/checkout.routes.ts",
+    "sha256": "7e809e83e95069926dc21a075f843cf2205585881918476a26dc2b3629a7211d"
+  },
+  {
+    "application": "opus",
+    "path": "src/checkout/stripe.client.ts",
+    "sha256": "783a7b52c0a626ebec45221a5e8b8d7541e4d9518e81afddf51d6dd6af3be20b"
+  },
+  {
+    "application": "opus",
+    "path": "src/checkout/checkout.service.ts",
+    "sha256": "a0775c8435fc30ffcae2364ceda45401c2ce8bba1082566ce93765bfb76940a1"
+  },
+  {
+    "application": "opus",
+    "path": "src/products/products.routes.ts",
+    "sha256": "8ad31b28dcf5d3bbebee3682c54fd99812a44ef4ef34d957f069750238c8301d"
+  },
+  {
+    "application": "opus",
+    "path": "src/products/products.types.ts",
+    "sha256": "583665837c9770ef2951871c7b77f1d2c7cf9d3cf010d1693f9a2567eab50d47"
+  },
+  {
+    "application": "opus",
+    "path": "src/products/products.service.ts",
+    "sha256": "4b5ea6b72c8b7b1649407f048b39ba120ccea8c79f780fff1e5fafb4be5adc8a"
+  },
+  {
+    "application": "opus",
+    "path": "src/products/products.repository.ts",
+    "sha256": "2bc37992a124f91d80a0d590364b1be75110c8828205844c9891be051926892f"
+  },
+  {
+    "application": "opus",
+    "path": "src/products/products.controller.ts",
+    "sha256": "7b4d0472a44b99f8214fd815654e49fed5cdaaeceac6a4a9dbbe9f3251093a08"
+  },
+  {
+    "application": "opus",
+    "path": "src/categories/categories.repository.ts",
+    "sha256": "c3d840ad88409b0906387b42d3afe6d439ca546c0c4c7e9601f086451011b5da"
+  },
+  {
+    "application": "opus",
+    "path": "src/categories/categories.routes.ts",
+    "sha256": "9d6dd576a45d3528e55244f05aeede16c229d33f4e3f21bc18ffa07609bad720"
+  },
+  {
+    "application": "opus",
+    "path": "src/categories/categories.controller.ts",
+    "sha256": "351592fe573df66968200d55754783769548794d7caecd4d01c53d4dd2c11d66"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/config/env.ts",
+    "sha256": "f3a326f2d65408a1508af6611bab1346c7b388638f7704459ad53f62474003e1"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/mailer/mailer.ts",
+    "sha256": "c69bca6d46c5f8e00a37092f32486963a265d0bc5e846a6927da3a651864ebc5"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/http/errors.ts",
+    "sha256": "36ed3b2a721d5fc9faac16949a94aeabe6c870c658e8c75eb03e9d5ff13f77ce"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/http/express.d.ts",
+    "sha256": "4b833d407836fe8d9f6f1d6759b840227a974fa74e5370d1608e6a68170ceb45"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/http/asyncHandler.ts",
+    "sha256": "d3b1692ac71b8bd76e6e723ba93a28a85e5bd793db5e5199d2ddd1b57fadb361"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/http/errorHandler.ts",
+    "sha256": "40fd1601c523f0cf4838cebe4692ce11c035a4c9ef183809941dea69ed7ec51f"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/db/seed.ts",
+    "sha256": "20c463c09e7c88c26986fb40c29f2211f1b98476f7d551a849b4fcaa9573a589"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/db/pool.ts",
+    "sha256": "9222b9db78cd79ea3f8a34f0d560f3211f6c36bead8f94bab9e7569665e74edd"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/db/migrate.ts",
+    "sha256": "06ed75cebe2144dc4af69f1038448a159931c1088b98b645b8d53991175a34ac"
+  },
+  {
+    "application": "opus",
+    "path": "src/shared/db/migrations/001_init.sql",
+    "sha256": "d4b91954777de5af33ecd86daa329ccd3fd5be3accb5e01368c11dc558b21c14"
+  }
+]
